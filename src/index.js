@@ -7,6 +7,7 @@ import App from "./components/app";
 import ErrorBoundry from "./components/error-boundry";
 import FreedomstoreService from "./services/freedomstore-service";
 import {FreedomstoreServiceProvider} from "./components/freedomstore-service-context";
+import SimpleReactLightbox from 'simple-react-lightbox';
 
 import store from "./store";
 const freedomstoreService= new FreedomstoreService();
@@ -16,7 +17,9 @@ ReactDOM.render(
         <ErrorBoundry>
                 <FreedomstoreServiceProvider value={freedomstoreService}>
                      <Router>
+                         <SimpleReactLightbox>
                              <App/>
+                         </SimpleReactLightbox>
                      </Router>
                 </FreedomstoreServiceProvider>
         </ErrorBoundry>

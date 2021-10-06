@@ -1,0 +1,69 @@
+@import "src/components/veriable/variable";
+body {
+  //max-width: 1920px;
+  //min-height: 1080px;
+  font-size: $fontsize;
+
+  background: linear-gradient(to bottom , rgba(0, 0, 0, .1) 100%, rgba(11, 29, 38, 1) 100%) , #0B1D26  url("../img/bg_header_f.png") center top no-repeat;
+
+  //overflow: hidden;
+  background-size: contain;
+  margin: 0 auto;
+  box-sizing: border-box;
+  height: 100vh;
+  position: relative;
+  color: $firstColor;
+}
+.container,
+{
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+.container{
+  width: 1462px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+._hidden{
+  overflow: hidden;
+}
+@media (max-width:600px) {
+  .container{
+    max-width: 100%;
+  }
+}
+
+
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+
