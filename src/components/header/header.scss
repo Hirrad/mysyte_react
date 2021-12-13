@@ -36,36 +36,36 @@ header {
     margin-top: 300px;
 
 
-    & .follow {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      align-items: center;
-      top: 0;
-      transform: translateY(50%);
-      left: 0;
-
-      & > span {
-        cursor: pointer;
-
-        &:first-child {
-          writing-mode: vertical-rl;
-          margin-top: -5px;
-
-        }
-
-        &:nth-child(2) {
-          margin-top: 5px;
-        }
-
-        &:last-child {
-          margin-top: 5px;
-        }
-      }
-
-
-
-    }
+    //& .follow {
+    //  display: flex;
+    //  flex-direction: column;
+    //  position: absolute;
+    //  align-items: center;
+    //  top: 0;
+    //  transform: translateY(50%);
+    //  left: 0;
+    //
+    //  & > span {
+    //    cursor: pointer;
+    //
+    //    &:first-child {
+    //      writing-mode: vertical-rl;
+    //      margin-top: -5px;
+    //
+    //    }
+    //
+    //    &:nth-child(2) {
+    //      margin-top: 5px;
+    //    }
+    //
+    //    &:last-child {
+    //      margin-top: 5px;
+    //    }
+    //  }
+    //
+    //
+    //
+    //}
   }
 
   &_tittle {

@@ -1,0 +1,38 @@
+@import "src/components/veriable/variable";
+
+.follow {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  align-items: center;
+  top: 0;
+  transform: translateY(50%);
+  left: 0;
+
+  & > span {
+    cursor: pointer;
+    color: $secondColor;
+
+    &:first-child {
+      writing-mode: vertical-rl;
+      margin-top: -5px;
+
+    }
+
+    &:nth-child(2) {
+      margin-top: 5px;
+
+      & > a {
+        &:hover {
+          color: #0B1D26;
+        }
+      }
+    }
+
+    &:last-child {
+      margin-top: 5px;
+    }
+  }
+
+
+}
