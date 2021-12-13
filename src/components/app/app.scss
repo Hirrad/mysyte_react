@@ -2,6 +2,7 @@
 body {
   //max-width: 1920px;
   //min-height: 1080px;
+  width: 100%;
   font-size: $fontsize;
 
   background: linear-gradient(to bottom , rgba(0, 0, 0, .1) 100%, rgba(11, 29, 38, 1) 100%) , #0B1D26  url("../img/bg_header_f.png") center top no-repeat;
@@ -14,14 +15,14 @@ body {
   position: relative;
   color: $firstColor;
 }
-.container,
-{
-  width: 100%;
-  padding-right: var(--bs-gutter-x, 0.75rem);
-  padding-left: var(--bs-gutter-x, 0.75rem);
-  margin-right: auto;
-  margin-left: auto;
-}
+//.container,
+//{
+//  width: 100%;
+//  padding-right: var(--bs-gutter-x, 0.75rem);
+//  padding-left: var(--bs-gutter-x, 0.75rem);
+//  margin-right: auto;
+//  margin-left: auto;
+//}
 .container{
   width: 1462px;
   min-height: 100vh;
