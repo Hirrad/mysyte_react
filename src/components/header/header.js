@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link, animateScroll as scroll} from "react-scroll";
 import './header.scss'
 import Navigation from "../navigation";
 import {FaFacebook, FaInstagram, FaLongArrowAltDown} from "../buttons/font-awesome";
@@ -13,10 +13,19 @@ const Header = () => {
                 <div className="header_wrapper">
                     <div className="header_tittle"><span></span>A Hiking guide</div>
                     <div className="header_text">Be Prepared For The Mountains And Beyond!</div>
-                    <div className="header_footer"><span className="scroll-down">scroll down</span>
+                    <Link to='container'
+                          activeClass="active"
 
-                        <FaLongArrowAltDown/>
-                    </div>
+                          spy={true}
+                          smooth={true}
+                          offset={-70}
+                          duration={500}>
+                        <div className="header_footer"><span className="scroll-down">scroll down </span>
+
+
+                            <FaLongArrowAltDown/>
+                        </div>
+                    </Link>
 
                 </div>
                 <div className="follow">
