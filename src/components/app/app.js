@@ -15,7 +15,7 @@ import PhotoGallery from "../gallery/photo-gallery";
 
 
 const App = ({freedomstoreService}) =>{
-    console.log(freedomstoreService.getBlog())
+    // console.log(freedomstoreService.getBlog())
     return<React.Fragment>
         <Header/>
         <div className='container'>
