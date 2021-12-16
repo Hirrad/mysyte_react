@@ -1,0 +1,36 @@
+@import "../../../veriable/variable";
+
+.blog{
+  &_number {
+    font-size: 8rem;
+    opacity: .2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) ;
+
+  }
+
+  &_subtitle {
+    display: flex;
+    color: $secondColor;
+    text-transform: uppercase;
+    font-family: 'Chronicle Display Black';
+    font-size: 0.86rem;
+    letter-spacing: 2px;
+    align-items: center;
+    position: relative;
+
+    & > span:first-child {
+      display: block;
+      height: 100%;
+      border-top: 2px solid $secondColor;
+      width: 72px;
+      margin-right: 10px;
+
+    }
+
+    & span:last-child {
+      color: $firstColor;
+    }
+  }
+}

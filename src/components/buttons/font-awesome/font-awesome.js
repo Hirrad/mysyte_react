@@ -19,6 +19,7 @@ const FaLongArrowAltDown =()=>{
 const FaLongArrowAltRight =()=>{
     return  <FontAwesomeIcon icon={faLongArrowAltRight} className='colorIcon'/>
 }
+
 export {
     FaFacebook,
     FaInstagram,

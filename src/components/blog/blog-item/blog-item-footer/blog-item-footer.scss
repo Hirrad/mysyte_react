@@ -1,0 +1,22 @@
+@import "../../../veriable/variable";
+.blog{
+  &_footer {
+    color: $secondColor;
+    font-size: 0.9rem;
+
+    cursor: pointer;
+    margin-top: 15px;
+
+
+
+    //& > i {
+    //  transform: translateY(10%);
+    //  margin-left: 5px;
+    //}
+    & a{
+      color: $secondColor;
+      text-decoration: none;
+
+    }
+  }
+}

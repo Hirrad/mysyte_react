@@ -1,11 +1,13 @@
 import React from "react";
-import makeCounter from "../../../../utilis/count";
 import './blog-item-number.scss';
-let counter =makeCounter();
 
-const BlogItemNumber=()=>{
 
-    return <div className="blog_subtitle"><span></span>GEt Started
-        <span className="blog_number">{counter()}</span></div>
+const BlogItemNumber=(props)=>{
+const {number}=props;
+    return <div className="blog_subtitle">
+        <span> </span>
+        {/*<span className="blog_number">{number}</span>*/}
+        GEt Started
+        </div>
 }
 export default BlogItemNumber;
