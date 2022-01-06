@@ -24,6 +24,7 @@ import Pic23 from "../components/img/_DSC0092.JPG";
 import Pic24 from "../components/img/_DSC0093.JPG";
 import Pic28 from "../components/img/_DSC0245.JPG";
 
+
 export default class FreedomstoreService {
 
     async getResource (url) {
@@ -41,16 +42,91 @@ _blogItems=[{
         "                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n" +
         "                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n" +
         "                    novice, moderate, advanced moderate, expert, or expert backpacker?",
-    text:"Determining what level of hiker you are can be an important tool when\n" +
-        " planning future hikes. This hiking level guide will help you plan hikes according to different hike\n" +
-        "   ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n" +
-        "        novice, moderate, advanced moderate, expert, or expert backpacker? Determining what level of hiker you are can be an important tool when\n" +
-        " planning future hikes. This hiking level guide will help you plan hikes according to different hike\n" +
-        " ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n" +
-        "                  novice, moderate, advanced moderate, expert, or expert backpacker? Determining what level of hiker you are can be an important tool when\n" +
-        " planning future hikes. This hiking level guide will help you plan hikes according to different hike\n" +
-        " ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n" +
-        "              novice, moderate, advanced moderate, expert, or expert backpacker?",
+    text:'        <h1>Lorem ipsum dolor.</h1>\n' +
+        '        <div className="page__img page__img-right">\n' +
+        '\n' +
+        '\n' +
+        '                <img src={Pic1} alt=""/>\n' +
+        '\n' +
+        '        </div>\n' +
+        '        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, aliquam beatae debitis dicta dolor harum\n' +
+        '            labore magni optio pariatur quasi quos ratione, recusandae sapiente suscipit tempore velit veritatis\n' +
+        '            voluptatum. Cumque et itaque nobis optio, quasi qui quibusdam quidem quo vitae?\n' +
+        '        </p>\n' +
+        '        <div className="page__img page__img-left">\n' +
+        '\n' +
+        '                <img src={Pic2} alt=""/>\n' +
+        '\n' +
+        '        </div>\n' +
+        '        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto autem maiores placeat! Ab accusantium\n' +
+        '            alias assumenda atque beatae eaque enim fugit itaque modi natus nisi odio, odit quaerat quod similique sit\n' +
+        '            velit veritatis, voluptatum! Accusamus aut commodi, distinctio exercitationem laboriosam maiores neque nisi\n' +
+        '            quae quia voluptatem? A, ad aut corporis cum distinctio dolor eligendi error fugit illum laudantium\n' +
+        '            necessitatibus nesciunt odio pariatur placeat praesentium quas quibusdam sint soluta temporibus, voluptatem.\n' +
+        '            Aperiam cupiditate doloremque dolores dolorum magni necessitatibus officia quam quas quidem reiciendis.\n' +
+        '            Adipisci consectetur, consequatur cum dolores doloribus enim fuga fugit hic iusto laborum, minus nobis\n' +
+        '            perferendis porro quis quisquam totam voluptatum. Accusantium ad aliquid animi consectetur consequatur cum\n' +
+        '            debitis delectus deleniti dignissimos distinctio dolore dolores ducimus ea error harum in ipsam iste itaque\n' +
+        '            obcaecati odio omnis quidem recusandae rem sit velit veritatis, voluptas voluptatum? Ad, consequatur culpa\n' +
+        '            dignissimos, dolor doloremque doloribus eum ex fugiat hic illum in ipsa ipsum maxime minus mollitia\n' +
+        '            necessitatibus odio quam quisquam recusandae repellendus reprehenderit rerum sed veritatis voluptatibus\n' +
+        '            voluptatum. Aperiam, autem commodi cumque debitis dolore, excepturi impedit iure laudantium molestias non\n' +
+        '            placeat praesentium provident quia quibusdam sed tempora unde velit? Aspernatur culpa dicta illo molestias\n' +
+        '            nesciunt omnis recusandae suscipit voluptate! Accusamus aliquid blanditiis consequuntur cum dignissimos\n' +
+        '            explicabo fuga id iure iusto laudantium magni maxime minus placeat qui repellendus reprehenderit saepe,\n' +
+        '            sequi sit. Aliquam autem culpa ea excepturi fuga id iste, iure laborum necessitatibus quae, rem repellendus\n' +
+        '            repudiandae sit tempore, tenetur. Accusantium atque delectus dolorem ex exercitationem hic id in laudantium\n' +
+        '            minima, modi nihil non officiis possimus provident quae, quasi quidem quis sapiente sed sequi sit soluta\n' +
+        '            sunt suscipit totam voluptate? Alias architecto beatae, dolorum earum maxime officia quod. Animi aperiam aut\n' +
+        '            autem deleniti esse ex hic iste minima odit pariatur perferendis reiciendis, sequi sint soluta, sunt vero\n' +
+        '            voluptas. In, minima nostrum. Mollitia, nulla quisquam?\n' +
+        '        </p>\n' +
+        '        <div className="page__img page__img-inline">\n' +
+        '\n' +
+        '                <img src={Pic3} alt=""/>\n' +
+        '\n' +
+        '        </div>\n' +
+        '        <div className="page__img page__img-inline">\n' +
+        '\n' +
+        '                <img src={Pic4} alt=""/>\n' +
+        '\n' +
+        '        </div>\n' +
+        '        <div className="page__img page__img-inline">\n' +
+        '\n' +
+        '                <img src={Pic5} alt=""/>\n' +
+        '\n' +
+        '        </div>\n' +
+        '        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolorum eaque esse eum, id incidunt\n' +
+        '            reprehenderit tempora vel veritatis! Aliquam beatae consectetur corporis cumque delectus eligendi est\n' +
+        '            eveniet harum maxime molestias, necessitatibus nobis officiis optio provident rem tempora unde? Autem\n' +
+        '            consequatur delectus eius expedita necessitatibus nostrum reiciendis sed soluta tempora? Alias aspernatur\n' +
+        '            consectetur culpa, dolor doloremque dolores dolorum eius eum facere facilis maiores nihil nisi nostrum\n' +
+        '            perferendis quia recusandae reiciendis reprehenderit repudiandae sapiente sit soluta tempore temporibus\n' +
+        '            voluptas. Blanditiis delectus labore nisi perspiciatis placeat quis. Distinctio dolore dolorum enim non\n' +
+        '            nulla omnis perferendis soluta ut voluptatem voluptatibus! Accusamus, assumenda dicta fugiat illum in\n' +
+        '            incidunt nulla obcaecati similique? Aperiam aut blanditiis, dolores ducimus eum fugit ipsam nemo nisi odit\n' +
+        '            pariatur recusandae voluptatum? Aperiam aut dolore dolorem doloremque ducimus, expedita fugiat fugit\n' +
+        '            incidunt laboriosam maiores maxime nam necessitatibus nesciunt nihil nobis placeat quam, rerum, temporibus\n' +
+        '            veniam voluptatum. Accusantium aut ipsam molestiae voluptate?</p>\n' +
+        '        <div className="page__img page__img-center">\n' +
+        '\n' +
+        '                <img src={Pic6} alt=""/>\n' +
+        '\n' +
+        '        </div>\n' +
+        '        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis nostrum placeat quas veritatis? Aliquid\n' +
+        '            animi, aperiam blanditiis consequuntur corporis cupiditate dolor dolorum ea eius eligendi eos illo illum\n' +
+        '            ipsam laboriosam laudantium maxime mollitia necessitatibus nobis nulla odit perferendis placeat possimus\n' +
+        '            provident quae quam reprehenderit repudiandae suscipit totam ut veritatis. Beatae cumque dolore est harum\n' +
+        '            iure minus nemo nobis numquam porro quae quia rem rerum sit, sunt vero! Ab dolores eius exercitationem hic\n' +
+        '            illo magnam nam odio rerum similique ullam? Ab accusamus architecto aspernatur, atque dignissimos eaque enim\n' +
+        '            esse et facilis ipsum iure iusto maiores neque nesciunt odio officiis, quae quaerat quam qui quis quod\n' +
+        '            ratione reprehenderit sequi sunt, totam unde velit voluptate! Aliquid animi aperiam atque blanditiis\n' +
+        '            consectetur consequuntur cumque debitis dolore dolores dolorum ea, eaque et eum eveniet facere fugit harum\n' +
+        '            ipsa maiores natus, neque nihil nisi quia quidem quisquam quos reprehenderit sequi soluta, totam vero\n' +
+        '            voluptates! Aliquid aut debitis delectus dignissimos eius, est explicabo facere impedit in necessitatibus\n' +
+        '            neque nobis praesentium, quisquam quod repellat reprehenderit tempora voluptatem. Accusantium aliquid beatae\n' +
+        '            culpa dicta dignissimos dolores eius eos eum fugiat incidunt laboriosam nemo nobis numquam omnis pariatur\n' +
+        '            quas qui quo quos repellendus sapiente, sequi ullam unde ut, vero voluptate. Illo!</p>',
     img:Pic1
 
 },

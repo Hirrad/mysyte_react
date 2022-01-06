@@ -3,7 +3,7 @@ import './blog-item-footer.scss'
 import {FaLongArrowAltRight} from "../../../buttons/font-awesome";
 import {Link} from "react-router-dom";
 import {Page} from "../../../pages";
-const BlogItemFooter= ()=>{
+const BlogItemFooter= ({id})=>{
     return   <div className="blog_footer">
                 <Link to={{
             pathname: "/page1",
