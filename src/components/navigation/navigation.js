@@ -1,45 +1,43 @@
-import React from "react";
-import {FaUserCircle,FaFacebook,FaInstagram} from "../buttons/font-awesome";
-import {Link} from "react-router-dom";
+import React, {Component} from "react";
+// import {FaUserCircle, FaFacebook, FaInstagram} from "../buttons/font-awesome";
+// import {slide as Menu} from 'react-burger-menu'
+// import {Link} from "react-router-dom";
 
 import './navigation.scss'
+import NavigationPc from "./navigation-pc";
+import NavigationBurger from "./navigation-burger";
+
+class Navigation extends Component {
+    state = {
+        mobile: document.documentElement.clientWidth
+    }
 
 
-const Navigation = ()=>{
-    return <div className="nav__conteiner">
-        <nav>
-            <div className="nav__burger ">
-                <span></span>
-            </div>
-            <ul>
-                <li className="nav-tittle "><Link to="/">freedom</Link></li>
-                <li className="nav">
-                    <ul>
-                        <li><Link to="/gallery">Галерея</Link></li>
-                        <li><Link to="/about">Обо мне</Link></li>
-                        <li><Link to="/blog">Блог</Link></li>
-                        <li><Link to="/travel">В поход с нами</Link></li>
-                    </ul>
 
-                </li>
-
-                <li className="nav-account">
-                    <FaUserCircle/>
-                    <span>Account</span>
-                </li>
-                <li className="follow__nav">
-                    <div className="follow follow-nav">
-                        <a href=""><FaFacebook /></a>
-                        <a href=""><FaInstagram /></a>
-                    </div>
-
-
-                </li>
-            </ul>
-
-
-        </nav>
-    </div>
+widthScreen= (e)=> {
+        if(document.documentElement.clientWidth!==this.state.mobile)
+        {
+            let mobile=document.documentElement.clientWidth;
+            this.setState({mobile})
+        }
 
 }
+componentDidMount() {
+        window.addEventListener("resize",this.widthScreen)
+
+}
+componentWillUnmount() {
+    window.removeEventListener("resize",this.widthScreen);
+}
+
+
+    render() {
+       let {mobile}=this.state;
+       // console.log(mobile);
+        return (mobile<=980)?<NavigationBurger/>:<NavigationPc/>
+
+    }
+}
+
+
 export default Navigation;

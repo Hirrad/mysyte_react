@@ -1,2 +1,4 @@
 import Page from "./page";
-export default Page;
+import Page1 from "./page1";
+export {Page1,
+        Page}

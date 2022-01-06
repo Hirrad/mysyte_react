@@ -17,18 +17,18 @@ const Page =()=>{
         <h1>Lorem ipsum dolor.</h1>
         <div className="page__img page__img-right">
 
-            <a  href={Pic1}>
+
                 <img src={Pic1} alt=""/>
-            </a>
+
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, aliquam beatae debitis dicta dolor harum
             labore magni optio pariatur quasi quos ratione, recusandae sapiente suscipit tempore velit veritatis
             voluptatum. Cumque et itaque nobis optio, quasi qui quibusdam quidem quo vitae?
         </p>
         <div className="page__img page__img-left">
-            <a data-fslightbox href={Pic2}>
+
                 <img src={Pic2} alt=""/>
-            </a>
+
         </div>
         <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto autem maiores placeat! Ab accusantium
             alias assumenda atque beatae eaque enim fugit itaque modi natus nisi odio, odit quaerat quod similique sit
@@ -54,19 +54,19 @@ const Page =()=>{
             voluptas. In, minima nostrum. Mollitia, nulla quisquam?
         </p>
         <div className="page__img page__img-inline">
-            <a data-fslightbox href={Pic3}>
+
                 <img src={Pic3} alt=""/>
-            </a>
+
         </div>
         <div className="page__img page__img-inline">
-            <a data-fslightbox href={Pic4}>
+
                 <img src={Pic4} alt=""/>
-            </a>
+
         </div>
         <div className="page__img page__img-inline">
-            <a data-fslightbox href={Pic5}>
+
                 <img src={Pic5} alt=""/>
-            </a>
+
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolorum eaque esse eum, id incidunt
             reprehenderit tempora vel veritatis! Aliquam beatae consectetur corporis cumque delectus eligendi est
@@ -81,9 +81,9 @@ const Page =()=>{
             incidunt laboriosam maiores maxime nam necessitatibus nesciunt nihil nobis placeat quam, rerum, temporibus
             veniam voluptatum. Accusantium aut ipsam molestiae voluptate?</p>
         <div className="page__img page__img-center">
-            <a data-fslightbox href={Pic6}>
+
                 <img src={Pic6} alt=""/>
-            </a>
+
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis nostrum placeat quas veritatis? Aliquid
             animi, aperiam blanditiis consequuntur corporis cupiditate dolor dolorum ea eius eligendi eos illo illum

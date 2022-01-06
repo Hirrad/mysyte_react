@@ -18,7 +18,7 @@ const BlogItem =(props)=>{
                     </div>
                     <BlogItemFooter/>
                 </div>
-                {console.log(body.img)}
+                {/*{console.log(body.img)}*/}
                 <div className="blog_picture"><img src={body.img} alt=""/></div>
 
             </div>

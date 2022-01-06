@@ -9,10 +9,10 @@ const SidePanelFollowUs = () => {
             Follow us
         </span>
             <span>
-            <Link href=""><FaFacebook/></Link>
+            <Link to=""><FaFacebook/></Link>
         </span>
             <span>
-            <Link href=""><FaInstagram/></Link>
+            <Link to=""><FaInstagram/></Link>
         </span>
         </div>
     </React.Fragment>

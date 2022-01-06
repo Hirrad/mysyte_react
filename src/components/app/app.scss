@@ -11,7 +11,7 @@ body {
   background-size: contain;
   margin: 0 auto;
   box-sizing: border-box;
-  height: 100vh;
+  //height: 100vh;
   position: relative;
   color: $firstColor;
 }
@@ -24,8 +24,9 @@ body {
 //  margin-left: auto;
 //}
 .container{
+  position: relative;
   width: 1462px;
-  min-height: 100vh;
+  //min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-items: center;

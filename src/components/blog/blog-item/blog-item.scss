@@ -1,7 +1,8 @@
 @import "../../veriable/variable";
 .blog {
+
   &:first-child {
-    margin-top: -100px;
+    margin-top: 0px;
   }
 
   &:nth-child(2n) {
@@ -95,7 +96,8 @@
 @media (max-width: 1130px) {
   .blog {
     &:first-child {
-      margin-top: -200px;
+      //margin-top: 50px;
+      //margin-top: -200px;
     }
 
   }
@@ -104,7 +106,7 @@
 @media (max-width: 990px) {
   .blog {
     &:first-child {
-      margin-top: 50px;
+      margin-top: 50px;margin-top: 50px;
     }
 
     &_number {

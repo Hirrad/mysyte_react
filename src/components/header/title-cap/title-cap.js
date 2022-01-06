@@ -1,6 +1,7 @@
 import React from "react";
 import './title-cap.scss'
-import {Link, animateScroll as scroll} from "react-scroll";
+import {Link} from "react-scroll";
+// import {Link, animateScroll as scroll} from "react-scroll";
 import {FaLongArrowAltDown} from "../../buttons/font-awesome";
 
 const TitleCap=()=>{
