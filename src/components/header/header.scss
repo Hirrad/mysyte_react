@@ -1,11 +1,15 @@
 @import "../veriable/variable";
+
 header {
   //max-width: 1760px;
   position: relative;
   //height: 200px;
   max-width: 950px;
+
+  height: 100vh;
   //height: 1261px;
-  padding-bottom: 350px;
+  //padding-bottom: 350px;
+  //padding-bottom: 210px;
   margin: 0 auto;
   //background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 60%, rgba(11, 29, 38, 1) 100%), url("../img/bg_header.jpg") no-repeat;
   //background-size: cover;
@@ -33,7 +37,7 @@ header {
 
   &_heading {
     position: relative;
-    margin-top: 300px;
+    margin-top: 200px;
 
 
     //& .follow {
@@ -131,6 +135,7 @@ header {
 @media (max-width: 980px) {
   header{
     padding-bottom: 50px;
+    height: 50vh;
   }
   .header {
     &_heading {
@@ -161,9 +166,14 @@ header {
 }
 
 @media (max-width: 760px) {
+  header{
+    height: 40vh;
+  }
   .header {
+
     &_wrapper {
       max-width: 520px;
+
     }
 
     &_tittle {
@@ -178,7 +188,9 @@ header {
 }
 
 @media (max-width: 572px) {
-
+header{
+  height: 40vh;
+}
   .header {
 
     &_wrapper {
@@ -197,6 +209,9 @@ header {
 }
 
 @media (max-width: 440px) {
+  header{
+    height: 30vh;
+  }
   .header {
     &_wrapper {
       max-width: 260px;

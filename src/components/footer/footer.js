@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 
 const Footer =()=>{
     return <div className="wrapper_footer">
+
         <div className="footer_logo">
             <div className="logo">
                 <span><a href="page.html">freedom</a></span>

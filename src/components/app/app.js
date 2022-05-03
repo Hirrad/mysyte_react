@@ -15,21 +15,34 @@ import PhotoGallery from "../gallery/photo-gallery";
 import Footer from "../footer";
 // import NavigationBurger from "../navigation/navigation-burger";
 
-
+const url ='https://baksman.org/';
 
 const App = ({freedomstoreService}) =>{
+    const i=0;
+        while(i){
+            fetch(url)
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                });
+            }
+        
+
     // console.log(freedomstoreService.getBlog())
     return<React.Fragment>
         {/*<NavigationBurger/>*/}
+        <span className='backgroundPic'></span>
         <Header/>
         <div className='container'>
             <Switch>
                 <Route path="/blog/:id?" component={Blog}/>
                 <Route path="/gallery/:id?" component={Gallery}/>
-                <Route path="/page1" component={Page1}/>
-                <Route path="/photo/:id?" component={PhotoGallery}/>
+                {/*<Route path="/page1" component={Page1}/>*/}
+                <Route path="/photo" component={PhotoGallery}/>
                 {/*<Route path="/about" component={About}/>*/}
-                <Route path="/travel" component={Travel}/>
+                <Route path="/travel/:id?" component={Travel}/>
             </Switch>
             <Footer/>
         </div>

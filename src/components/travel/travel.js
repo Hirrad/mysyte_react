@@ -1,144 +1,54 @@
-import React from "react";
-// import {FaLongArrowAltRight} from "../buttons/font-awesome";
-import Pic1 from '../img/_DSC0245.JPG';
-import Pic2 from '../img/_DSC0131.JPG';
-import Pic3 from '../img/_DSC0011.JPG';
-import Pic4 from '../img/_DSC0015.JPG';
+import React, {useEffect, useState} from "react";
 import './travel.scss'
 import TravelItem from "./travel-item";
-const dataTravel = [{
-    id: 0,
-    data: '01.12.1234',
-    tittle: 'What level of hiker are you?',
-    picture: Pic1,
-    description: 'Determining what level of hiker you are can be an important tool\n' +
-        '                    when\n' +
-        '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-        '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-        '                    novice, moderate, advanced moderate, expert, or expert backpacker?',
-    text: 'Determining what level of hiker you are can be an important tool\n' +
-        '                    when\n' +
-        '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-        '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-        '                    novice, moderate, advanced moderate, expert, or expert backpacker?' +
-        'Determining what level of hiker you are can be an important tool\n' +
-        '                    when\n' +
-        '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-        '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-        '                    novice, moderate, advanced moderate, expert, or expert backpacker?' +
-        'Determining what level of hiker you are can be an important tool\n' +
-        '                    when\n' +
-        '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-        '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-        '                    novice, moderate, advanced moderate, expert, or expert backpacker?'
-},
-    {
-        id: 1,
-        data: '01.12.1324',
-        tittle: 'What level of hiker are you?',
-        picture: Pic4,
-        description: 'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?',
-        text: 'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?' +
-            'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?' +
-            'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?'
-    },
-    {
-        id: 2,
-        data: '01.12.1245',
-        tittle: 'What level of hiker are you?',
-        picture: Pic2,
-        description: 'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?',
-        text: 'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?' +
-            'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?' +
-            'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?'
-    },
-    {
-        id: 3,
-        data: '01.12.1212',
-        tittle: 'What level of hiker are you?',
-        picture: Pic3,
-        description: 'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?',
-        text: 'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?' +
-            'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?' +
-            'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?'
-    },
-    {
-        id: 4,
-        data: '01.12.1254',
-        tittle: 'What level of hiker are you?',
-        picture: Pic4,
-        description: 'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?',
-        text: 'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?' +
-            'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?' +
-            'Determining what level of hiker you are can be an important tool\n' +
-            '                    when\n' +
-            '                    planning future hikes. This hiking level guide will help you plan hikes according to different hike\n' +
-            '                    ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –\n' +
-            '                    novice, moderate, advanced moderate, expert, or expert backpacker?'
-    }];
-const Travel = () => {
+import {Page} from "../pages";
+import Spinner from "../spinner";
+import {withRouter} from "react-router-dom";
+import {withFreedomstoreService} from "../hoc";
+
+const Travel = (props) => {
+
+    const [id, setId] = useState(null),
+        // [loading,setLoading]=useState(true),
+        [travelDb, setTravelDb] = useState({
+            Db: null,
+            loading: true
+        }),
+        [treverItem, setTreverItem] = useState(null)
+
+    useEffect(() => {
+        let cancelled = false;
+        const {getTravelBd, getTravelItem} = props.freedomstoreService
+        const id = +props.match.params.id
+
+
+        console.log(getTravelBd())
+        console.log(travelDb)
+        const res = getTravelBd();
+        !cancelled && setTravelDb({
+            Db: res,
+            loading: false
+        });
+        console.log(travelDb)
+        !cancelled && setId(id);
+        console.log(`in id or not ${travelDb.loading}`)
+        if (!!id) {
+
+            const item = getTravelItem(+id);
+            setTreverItem(item)
+        }
+        return () => cancelled = true;
+
+    }, [props.match.params.id])
+
+
     return <div className="wrapper_travel">
-        <TravelItem dataTravel={dataTravel}/>
+
+        {console.log(`id ${typeof (id)}, blogDb ${travelDb.loading} props.match.params ${props.match.params.id} blogItem ${treverItem}`)}
+        {travelDb.loading && <Spinner/>}
+        {(!travelDb.loading && !id) && <TravelItem dataTravel={travelDb.Db}/>}
+
+        {(!!id && !!treverItem) && <Page data={treverItem}/>}
         {/*<div className="travel">*/}
         {/*    <div className="travel_content">*/}
         {/*        <div className="travel_subtitle"><span></span>01.12.1234<span></span>*/}
@@ -222,4 +132,4 @@ const Travel = () => {
 }
 
 
-export default Travel;
+export default withRouter(withFreedomstoreService()(Travel));

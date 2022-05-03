@@ -2,7 +2,7 @@ import React from "react";
 import './blog-item.scss'
 
 import BlogItemNumber from "./blog-item-number";
-import BlogItemFooter from "./blog-item-footer";
+import ItemFooter from "../../item-footer";
 
 const BlogItem =(props)=>{
 
@@ -16,7 +16,7 @@ const BlogItem =(props)=>{
                     <div className="blog_description">
                         {body.described}
                     </div>
-                    <BlogItemFooter id={body.id}/>
+                    <ItemFooter id={body.id} styleTeg="blog_footer" section='blog'/>
                 </div>
                 {/*{console.log(body.img)}*/}
                 <div className="blog_picture"><img src={body.img} alt=""/></div>

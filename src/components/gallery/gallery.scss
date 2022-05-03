@@ -1,6 +1,7 @@
 @import "../veriable/variable";
 
 .gallery {
+
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -9,6 +10,7 @@
   align-self: flex-end;
 
   &_box {
+
     width: 25%;
     margin: 1%;
     transition: all .5s linear;
@@ -46,6 +48,7 @@
         transition: all .5s linear;
         border-radius: 10px;
         background: rgba(0, 0, 0, .9);
+        overflow: hidden;
 
 
         &:hover {

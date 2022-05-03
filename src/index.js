@@ -18,6 +18,7 @@ ReactDOM.render(
                 <FreedomstoreServiceProvider value={freedomstoreService}>
                      <Router>
                          <SimpleReactLightbox>
+
                              <App/>
                          </SimpleReactLightbox>
                      </Router>

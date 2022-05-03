@@ -53,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.3.0",
     "fslightbox": "^3.3.0-2",
     "fslightbox-react": "^1.6.2-2"
   }
