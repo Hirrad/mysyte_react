@@ -1,19 +1,19 @@
 import React, {useEffect, useState} from "react";
-import {FreedomstoreServiceConsumer} from "../freedomstore-service-context";
-import Spinner from "../spinner";
-import BlogItem from "../blog/blog-item";
-import {Page} from "../pages";
+// import {FreedomstoreServiceConsumer} from "../freedomstore-service-context";
+// import Spinner from "../spinner";
+// import BlogItem from "../blog/blog-item";
+// import {Page} from "../pages";
 
 const pageViewRedirectionById = (Page, getDb) => (Wrapped) => {
 
     return (props) => {
-        const [id, setId] = useState(null),
+        const [, setId] = useState(null)
             // [loading,setLoading]=useState(true),
-            [Db, setDb] = useState({
+        const    [Db, setDb] = useState({
                 Db: null,
                 loading: true
             }),
-            [Item, setItem] = useState(null)
+            [, setItem] = useState(null)
 
         useEffect(() => {
             let cancelled = false;
@@ -38,7 +38,7 @@ const pageViewRedirectionById = (Page, getDb) => (Wrapped) => {
             }
             return () => cancelled = true;
 
-        }, [props.match.params.id])
+        }, [props.match.params.id,Db,props.freedomstoreService])
         return <Wrapped {...props}/>
 
 

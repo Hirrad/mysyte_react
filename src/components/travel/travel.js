@@ -3,7 +3,8 @@ import './travel.scss'
 import TravelItem from "./travel-item";
 import {Page} from "../pages";
 import Spinner from "../spinner";
-import {withRouter} from "react-router-dom";
+import {useParams} from "react-router-dom";
+
 import {withFreedomstoreService} from "../hoc";
 
 const Travel = (props) => {
@@ -15,11 +16,11 @@ const Travel = (props) => {
             loading: true
         }),
         [treverItem, setTreverItem] = useState(null)
-
+        const {id:idParam}=useParams();
     useEffect(() => {
         let cancelled = false;
         const {getTravelBd, getTravelItem} = props.freedomstoreService
-        const id = +props.match.params.id
+        const id = +idParam
 
 
         console.log(getTravelBd())
@@ -39,7 +40,7 @@ const Travel = (props) => {
         }
         return () => cancelled = true;
 
-    }, [props.match.params.id])
+    }, [idParam,props.freedomstoreService,travelDb])
 
 
     return <div className="wrapper_travel">
@@ -132,4 +133,4 @@ const Travel = (props) => {
 }
 
 
-export default withRouter(withFreedomstoreService()(Travel));
+export default withFreedomstoreService()(Travel);

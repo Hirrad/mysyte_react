@@ -24,7 +24,7 @@ import Pic23 from "../components/img/_DSC0092.JPG";
 import Pic24 from "../components/img/_DSC0093.JPG";
 import Pic28 from "../components/img/_DSC0245.JPG";
 
-const url ='https://baksman.org/';
+// const url ='https://baksman.org/';
 export default class FreedomstoreService {
 
     async getResource(url) {

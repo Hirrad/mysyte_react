@@ -1,7 +1,7 @@
 import React from "react";
 import './trevel-item.scss';
 import ItemFooter from "../../item-footer";
-import {FaLongArrowAltRight} from "../../buttons/font-awesome";
+// import {FaLongArrowAltRight} from "../../buttons/font-awesome";
 
 const TravelItem = (props) => {
     const {dataTravel} = props;

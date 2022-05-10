@@ -1,11 +1,11 @@
-import React, {Component, useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import './gallery.scss'
 import GalleryItem from "./gallery-item";
 import {withFreedomstoreService} from "../hoc";
 import Spinner from "../spinner";
-import {withRouter} from "react-router-dom";
-import BlogItem from "../blog/blog-item";
-import {Page} from "../pages";
+import {useParams} from "react-router-dom";
+// import BlogItem from "../blog/blog-item";
+// import {Page} from "../pages";
 import PhotoGallery from "./photo-gallery";
 
 // class Gallery extends Component{
@@ -43,11 +43,11 @@ const Gallery =(props)=>{
             loading: true
         }),
         [galleryItem, setGalleryItem] = useState(null)
-
+const {id:idParam}=useParams();
     useEffect(() => {
         let cancelled = false;
         const {getGalleryBd, getGalleryItem} = props.freedomstoreService
-        const id = +props.match.params.id
+        const id = +idParam
 
 
         console.log(getGalleryBd())
@@ -67,7 +67,7 @@ const Gallery =(props)=>{
         }
         return () => cancelled = true;
 
-    }, [props.match.params.id])
+    }, [idParam,galleryDb,props.freedomstoreService])
     return <div className="gallery">
         {console.log(`id ${typeof (id)}, blogDb ${galleryDb.loading} props.match.params ${props.match.params.id} blogItem ${galleryItem}`)}
         {galleryDb.loading && <Spinner/>}
@@ -77,4 +77,4 @@ const Gallery =(props)=>{
     </div>
 }
 
-export default withRouter(withFreedomstoreService()(Gallery));
+export default withFreedomstoreService()(Gallery);

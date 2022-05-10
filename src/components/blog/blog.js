@@ -4,7 +4,7 @@ import './blog.scss'
 import BlogItem from "./blog-item";
 import {withFreedomstoreService} from "../hoc";
 import Spinner from "../spinner";
-import {withRouter} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {Page} from "../pages";
 
 const Blog_orig = (props) => {
@@ -23,6 +23,7 @@ const Blog_orig = (props) => {
             loading: true
         }),
         [blogItem, setBlogItem] = useState(null)
+        const {id:idParam}=useParams();
 
     useEffect(() => {
         let cancelled = false;
@@ -47,7 +48,7 @@ const Blog_orig = (props) => {
         }
         return () => cancelled = true;
 
-    }, [props.match.params.id])
+    }, [idParam,blogDb,props.freedomstoreService.id,props.freedomstoreService,props.match.params.id])
 
     return <div className="wrapper_blog">
         {console.log(`id ${typeof (id)}, blogDb ${blogDb.loading} props.match.params ${props.match.params.id} blogItem ${blogItem}`)}
@@ -61,4 +62,4 @@ const Blog_orig = (props) => {
 
 }
 
-export default withRouter(withFreedomstoreService()(Blog_orig));
+export default withFreedomstoreService()(Blog_orig);

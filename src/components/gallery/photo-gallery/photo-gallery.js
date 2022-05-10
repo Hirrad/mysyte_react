@@ -1,10 +1,9 @@
-import React, {Component} from "react";
-import {withRouter} from 'react-router-dom';
+import React  from "react";
 import './photo-gallery.scss'
 import LazyLoad from 'react-lazyload';
 import {SRLWrapper} from "simple-react-lightbox";
-import {withFreedomstoreService} from "../../hoc";
-import Spinner from "../../spinner";
+// import {withFreedomstoreService} from "../../hoc";
+// import Spinner from "../../spinner";
 
 
 // class PhotoGallery extends Component {

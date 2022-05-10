@@ -1,5 +1,5 @@
 import React from "react";
-import {Route,Switch} from 'react-router-dom'
+import {Route,BrowserRouter, Routes} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../veriable/variable.scss'
 import './app.scss';
@@ -10,7 +10,7 @@ import Header from "../header";
 import Blog from "../blog";
 import Gallery from "../gallery";
 import Travel from "../travel";
-import {Page1} from "../pages";
+// import {Page1} from "../pages";
 import PhotoGallery from "../gallery/photo-gallery";
 import Footer from "../footer";
 // import NavigationBurger from "../navigation/navigation-burger";
@@ -36,14 +36,17 @@ const App = ({freedomstoreService}) =>{
         <span className='backgroundPic'></span>
         <Header/>
         <div className='container'>
-            <Switch>
-                <Route path="/blog/:id?" component={Blog}/>
-                <Route path="/gallery/:id?" component={Gallery}/>
-                {/*<Route path="/page1" component={Page1}/>*/}
-                <Route path="/photo" component={PhotoGallery}/>
-                {/*<Route path="/about" component={About}/>*/}
-                <Route path="/travel/:id?" component={Travel}/>
-            </Switch>
+        <BrowserRouter>
+            <Routes>
+            <Route path="/blog/:id?" element={Blog}/>
+                <Route path="/gallery/:id?" element={Gallery}/>
+                {/*<Route path="/page1" element={Page1}/>*/}
+                <Route path="/photo" element={PhotoGallery}/>
+                {/*<Route path="/about" element={About}/>*/}
+                <Route path="/travel/:id?" element={Travel}/>
+            </Routes>
+        </BrowserRouter>
+
             <Footer/>
         </div>
     </React.Fragment>
