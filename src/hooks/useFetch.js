@@ -29,14 +29,14 @@ const useFetch = url =>{
         })
             .then(res => {
                 // console.log('success', res);
-                setResponse(res)
+                setResponse(res.data)
                 setIsLoading(false);
             }).catch(error => {
             // console.log('error', error);
             setIsLoading(false);
             setError(error.response.data.errors)
         })
-    },[isLoading,option,url,token])
+    },[isLoading,option,url])
 
     return [{response, isLoading, error}, doFetch]
 }
