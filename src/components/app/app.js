@@ -1,5 +1,5 @@
 import React from "react";
-import {Route,BrowserRouter, Routes} from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../veriable/variable.scss'
 import './app.scss';
@@ -14,41 +14,30 @@ import Travel from "../travel";
 import PhotoGallery from "../gallery/photo-gallery";
 import Footer from "../footer";
 // import NavigationBurger from "../navigation/navigation-burger";
-
-const url ='https://baksman.org/';
-
 const App = ({freedomstoreService}) =>{
-    const i=0;
-        while(i){
-            fetch(url)
-                .then((response) => {
-                    return response.json();
-                })
-                .then((data) => {
-                    console.log(data);
-                });
-            }
-        
+       
 
     // console.log(freedomstoreService.getBlog())
     return<React.Fragment>
-        {/*<NavigationBurger/>*/}
-        <span className='backgroundPic'></span>
+        {/* <NavigationBurger/> */}
+        <span className='backgroundPic'></span> 
         <Header/>
         <div className='container'>
-        <BrowserRouter>
+         
+         
+        
+        
             <Routes>
-            <Route path="/blog/:id?" element={Blog}/>
-                <Route path="/gallery/:id?" element={Gallery}/>
-                {/*<Route path="/page1" element={Page1}/>*/}
-                <Route path="/photo" element={PhotoGallery}/>
-                {/*<Route path="/about" element={About}/>*/}
-                <Route path="/travel/:id?" element={Travel}/>
+            <Route path="/blog/:id?" element={<Blog/>}/>
+            {/* <Route path="/gallery/:id?" element={<Gallery/>}/>  */}
+            <Route path="/gallery" element={<Gallery/>}/> 
+            <Route path="/photo" element={<PhotoGallery/>}/> 
+            <Route path="/travel/:id?" element={<Travel/>}/>
             </Routes>
-        </BrowserRouter>
+        
 
             <Footer/>
-        </div>
+        </div> 
     </React.Fragment>
 
 

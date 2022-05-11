@@ -16,12 +16,12 @@ ReactDOM.render(
     <Provider store={store}>
         <ErrorBoundry>
                 <FreedomstoreServiceProvider value={freedomstoreService}>
-                     <Router>
-                         <SimpleReactLightbox>
-
+                        <SimpleReactLightbox>
+                         <Router>
                              <App/>
+                             </Router>
                          </SimpleReactLightbox>
-                     </Router>
+                     
                 </FreedomstoreServiceProvider>
         </ErrorBoundry>
         </Provider>,

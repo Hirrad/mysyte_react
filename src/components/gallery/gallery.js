@@ -36,6 +36,7 @@ import PhotoGallery from "./photo-gallery";
 // }
 
 const Gallery =(props)=>{
+    console.log('here')
     const [id, setId] = useState(null),
         // [loading,setLoading]=useState(true),
         [galleryDb, setGalleryDb] = useState({
@@ -78,3 +79,4 @@ const {id:idParam}=useParams();
 }
 
 export default withFreedomstoreService()(Gallery);
+// export default Gallery;
