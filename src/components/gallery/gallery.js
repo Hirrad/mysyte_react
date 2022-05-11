@@ -68,9 +68,9 @@ const {id:idParam}=useParams();
         }
         return () => cancelled = true;
 
-    }, [idParam,galleryDb,props.freedomstoreService])
+    }, [idParam])
     return <div className="gallery">
-        {console.log(`id ${typeof (id)}, blogDb ${galleryDb.loading} props.match.params ${props.match.params.id} blogItem ${galleryItem}`)}
+        {/* {console.log(`id ${typeof (id)}, blogDb ${galleryDb.loading} props.match.params ${props.match.params.id} blogItem ${galleryItem}`)} */}
         {galleryDb.loading && <Spinner/>}
         {(!galleryDb.loading && !id) && <GalleryItem db={galleryDb.Db}/>}
 

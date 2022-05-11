@@ -30,7 +30,9 @@ const App = ({freedomstoreService}) =>{
             <Routes>
             <Route path="/blog/:id?" element={<Blog/>}/>
             {/* <Route path="/gallery/:id?" element={<Gallery/>}/>  */}
-            <Route path="/gallery" element={<Gallery/>}/> 
+            <Route path="/gallery" element={<Gallery/>}> 
+            <Route path=":id" element={<Gallery/>}/> 
+            </Route>
             <Route path="/photo" element={<PhotoGallery/>}/> 
             <Route path="/travel/:id?" element={<Travel/>}/>
             </Routes>
