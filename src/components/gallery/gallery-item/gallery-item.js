@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import './gallery-item.scss'
 
 const GalleryItem =(props)=>{
     const {db,DB}=props;
