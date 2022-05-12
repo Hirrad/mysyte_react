@@ -1,87 +1,78 @@
-import React  from "react";
+import React, { useEffect, useState} from "react";
 import './photo-gallery.scss'
 import LazyLoad from 'react-lazyload';
 import {SRLWrapper} from "simple-react-lightbox";
-// import {withFreedomstoreService} from "../../hoc";
-// import Spinner from "../../spinner";
+
+import {withFreedomstoreService} from "../../hoc";
+import Spinner from "../../spinner";
+import {useParams} from "react-router-dom";
+import {useFetch} from "../../../hooks/"
+
+// import LazyLoad from 'react-lazyload';
+
+const GalleryPhoto =(props)=>{
+    // console.log('here')
+    const {id:idParam}=useParams();
+    // const url=`/galerries/${idParam}?populate=images`
+    const url=`/galerries/${idParam}?populate=*`
+    const [{response, isLoading, error}, doFetch]=useFetch(url);
+    const [id, setId] = useState(null);
+    
+   
+const{dataCorrection}= props.freedomstoreService
+    useEffect(() => {
+        doFetch();
+        let cancelled = false;        
+        const id = +idParam
+        !cancelled && setId(id);
+
+        return () => cancelled = true;
+
+    }, [idParam])
+    if(response){
+        // console.log(response)
+    }
+    return <div className="gallery">
+        {/* {console.log(`id ${typeof (id)}, blogDb ${galleryDb.loading} props.match.params ${props.match.params.id} blogItem ${galleryItem}`)} */}
+        {isLoading && <Spinner/>}
+        {(!isLoading && response) && <GalleryPhotoItems db={dataCorrection('gallery_images',response)} />}
+
+        {/* {!!id && !!galleryItem && <PhotoGallery data={galleryItem}/>} */}
+    </div>
+}
+
+export default withFreedomstoreService()(GalleryPhoto);
+// export default Gallery;
 
 
-// class PhotoGallery extends Component {
-//     state = {
-//         loading: true,
-//         galBD: [],
-//         photosDB:[],
-//         id: ''
-//     }
-//
-//     componentDidMount() {
-//         const id=+this.props.match.params.id
-//             this.props.freedomstoreService.getGalleryItem(id).then((galBD) => {
-//                  this.setState({
-//                     galBD: galBD,
-//                     loading: false,
-//                      id:id
-//                 })
-//             })
-//
-//     }
-//     componentDidUpdate(prevProps, prevState, snapshot) {
-//         const id=+this.props.match.params.id
-//         if(prevState.id !==id){
-//             this.setState({
-//                 loading: true,
-//             })
-//             // console.log("попал")
-//             this.props.freedomstoreService.getGalleryItem(id).then((galBD) => {
-//                 this.setState({
-//                     galBD: galBD,
-//                     loading: false,
-//                     id:id
-//                 })
-//             })
-//
-//         }
-//
-//     }
-//
-//     render() {
-//
-//         const {loading, galBD} = this.state;
-//         // console.log(this.state)
-//         const spinner = loading ? <Spinner/> : null;
-//         const content = !loading ? <PhotoItem galBD={galBD} /> : null;
-//         // console.log(freedomstoreService.getBlogItems());
-//         return <div className="photos">
-//             {spinner}
-//             {content}
-//         </div>
-//     }
-// }
-//
-// const PhotoItem = ({galBD,id}) => {
-//     // console.log(galBD)
-//     return <SRLWrapper>
-//         <div className="photos_wrapper">
-//             <LazyLoad height={100}>
-//             {galBD.img_gallery.map((body, index) => {
-//                 return <div className="photos_img" key={index}>
-//                     <img src={body} alt=""/>
-//                 </div>
-//             })}
-//                 </LazyLoad>
-//         </div>
-//     </SRLWrapper>
-// }
-//
-// export default withFreedomstoreService()(withRouter(PhotoGallery));
-const PhotoGallery = ({data}) => {
+
+
+
+
+
+
+// import React  from "react";
+
+
+const GalleryPhotoItems = ({db}) => {
+    console.log(db)
     return <SRLWrapper>
         <div className="photos_wrapper">
             <LazyLoad height={100}>
-                {data.img_gallery.map((body, index) => {
-                    return <div className="photos_img" key={index}>
-                        <img src={body} alt=""/>
+                {db.data.map((body) => {
+                    if(!body.video){
+                        return <div className="photos_img" key={body.id}>
+                        <img src={body.url} alt={body.alt}/>
                     </div>
+                    }
+                    return <video
+                              width="100%"
+          height="100%"
+          key={body.id}
+                    >
+                    <source src={body.url} type="video/mp4" />
+                    </video>
+                    
                 })}
             </LazyLoad>
         </div>
@@ -89,4 +80,3 @@ const PhotoGallery = ({data}) => {
 
 }
 
-export default PhotoGallery;
