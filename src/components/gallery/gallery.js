@@ -19,38 +19,40 @@ const Gallery =(props)=>{
         }),
         [galleryItem, setGalleryItem] = useState(null)
 const {id:idParam}=useParams();
+const{dataCorrection}= props.freedomstoreService
     useEffect(() => {
         doFetch();
         let cancelled = false;
-        const {getGalleryBd, getGalleryItem} = props.freedomstoreService
+        // const {getGalleryBd, getGalleryItem} = props.freedomstoreService
+        
         const id = +idParam
 
 
         // console.log(getGalleryBd())
         // console.log(galleryDb)
-        const res = getGalleryBd();
-        !cancelled && setGalleryDb({
-            Db: res,
-            loading: false
-        });
+        // const res = getGalleryBd();
+        // !cancelled && setGalleryDb({
+        //     Db: res,
+        //     loading: false
+        // });
         // console.log(galleryDb)
         !cancelled && setId(id);
         // console.log(`in id or not ${galleryDb.loading}`)
-        if (!!id) {
-            // console.log(`into id ${getGalleryItem}`)
-            const item = getGalleryItem(+id);
-            setGalleryItem(item)
-        }
+        // if (!!id) {
+        //     // console.log(`into id ${getGalleryItem}`)
+        //     const item = getGalleryItem(+id);
+        //     setGalleryItem(item)
+        // }
         return () => cancelled = true;
 
     }, [idParam])
     if(response){
-        console.log(response)
+        console.log()
     }
     return <div className="gallery">
         {/* {console.log(`id ${typeof (id)}, blogDb ${galleryDb.loading} props.match.params ${props.match.params.id} blogItem ${galleryItem}`)} */}
         {isLoading && <Spinner/>}
-        {(!isLoading && !id&& response) && <GalleryItem db={galleryDb.Db} DB={response}/>}
+        {(!isLoading && response) && <GalleryItem db={dataCorrection('gallery_small',response)} />}
 
         {!!id && !!galleryItem && <PhotoGallery data={galleryItem}/>}
     </div>
