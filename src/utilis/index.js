@@ -1,3 +1,3 @@
 import makeCounter from "./count";
-
-export {makeCounter};
+import sequenceArray from './sequenceArray'
+export {makeCounter,sequenceArray};

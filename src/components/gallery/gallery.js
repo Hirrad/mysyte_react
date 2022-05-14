@@ -11,17 +11,17 @@ const Gallery =(props)=>{
     // console.log('here')
     const url='/galerries?populate=background_image'
     const [{response, isLoading, error}, doFetch]=useFetch(url);
-    const [id, setId] = useState(null);
+    // const [id, setId] = useState(null);
     const   [galleryItem, setGalleryItem] = useState(null);
    const {id:idParam}=useParams();
 const{dataCorrection}= props.freedomstoreService
     useEffect(() => {
         doFetch();
-        let cancelled = false;        
-        const id = +idParam
-        !cancelled && setId(id);
+        // let cancelled = false;        
+        // const id = +idParam
+        // !cancelled && setId(id);
 
-        return () => cancelled = true;
+        // return () => cancelled = true;
 
     }, [idParam])
     if(response){

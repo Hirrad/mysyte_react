@@ -1,7 +1,8 @@
 export default class FreedomstoreService {
     __dbUrlI='http://localhost:1337'
     dataCorrection=(item, db)=> {
-// console.log(db.data.attributes.images.data[0].attributes.formats.medium)
+        if (!db.data) return
+ // console.log(db.data.attributes.images.data[0].attributes.formats.medium)
 console.log(db)
         switch (item) {
             case 'gallery_small':
@@ -16,6 +17,7 @@ console.log(db)
                     pagination:db.meta.pagination
                 };  
                 case 'gallery_images':
+                    if (!db.data.attributes.images) return
                 return {
                     data:db.data.attributes.images.data.map(body=>{
                         if(body.attributes.mime==='video/mp4'){
