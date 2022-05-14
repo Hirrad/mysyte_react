@@ -45,7 +45,7 @@ const GalleryPhoto = (props) => {
         setBd(dataCorrection('gallery_images', response))
         setTotalCount(dataCorrection('gallery_images', response).data.length)
         // setCurrentBd(dataCorrection('gallery_images', response).data.slice(firstPage, lastPages))
-    }, [response, currentPage])
+    }, [response])
 
     useEffect(() => {
         if (bd.length === 0) return

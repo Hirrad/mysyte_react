@@ -3,7 +3,7 @@ import './loading-blocks'
 import { sequenceArray } from "../../../utilis"
 import { NavLink, Link } from 'react-router-dom'
 const LoadingBlocks = ({ totalCount, limit, flipping }) => {
-    const[page,setPage]=useState(1)
+    const[page,setPage]=useState(2)
     const endCount = Math.ceil(totalCount / limit)
     const currentCount = sequenceArray(1, endCount).length;
 //  useEffect(() => {
