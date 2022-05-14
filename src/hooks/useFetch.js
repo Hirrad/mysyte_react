@@ -1,7 +1,7 @@
 import { useState, useEffect,useCallback} from "react";
 import axios from "axios";
 
-const useFetch = url =>{
+const  useFetch =  (url) =>{
     const _baseUrl='http://localhost:1337/api';
     const [response, setResponse] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
