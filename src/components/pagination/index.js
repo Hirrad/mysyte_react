@@ -1,2 +1,4 @@
 import PaginationFigures from './pagination-figures/pagination-figures'
-export {PaginationFigures}
+import LoadingBlocks from './loading-blocks/loading-blocks'
+export {PaginationFigures,
+LoadingBlocks}

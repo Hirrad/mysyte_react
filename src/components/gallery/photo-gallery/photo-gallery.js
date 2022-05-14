@@ -1,11 +1,11 @@
-import React, { useEffect, useState,Fragment} from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import './photo-gallery.scss'
 import LazyLoad from 'react-lazyload';
 import { SRLWrapper } from "simple-react-lightbox";
-import { PaginationFigures } from "../../pagination";
+import { LoadingBlocks, PaginationFigures } from "../../pagination";
 import { withFreedomstoreService } from "../../hoc";
 import Spinner from "../../spinner";
-import { useParams, useLocation  } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useFetch } from "../../../hooks/"
 
 // import LazyLoad from 'react-lazyload';
@@ -23,10 +23,12 @@ const GalleryPhoto = (props) => {
     const [limitPage] = useState(20)
     const [currentPage, setCurrentPage] = useState(1)
     const [currentBd, setCurrentBd] = useState([])
+    const [loadingBlocksTrueFalse, setLoadingBlocksTrueFalse] = useState(false)
 
     const { dataCorrection } = props.freedomstoreService
-    const flipping = (page)=>{
+    const flipping = (page, loadingBlocks = false) => {
         setCurrentPage(page)
+        setLoadingBlocksTrueFalse(loadingBlocks)
     }
     useEffect(() => {
         doFetch();
@@ -43,26 +45,34 @@ const GalleryPhoto = (props) => {
         setBd(dataCorrection('gallery_images', response))
         setTotalCount(dataCorrection('gallery_images', response).data.length)
         // setCurrentBd(dataCorrection('gallery_images', response).data.slice(firstPage, lastPages))
-    }, [response,currentPage])
+    }, [response, currentPage])
 
     useEffect(() => {
-        if (bd.length===0) return
+        if (bd.length === 0) return
         const lastPages = currentPage * limitPage
-    const firstPage = lastPages - limitPage
-        
+        // if(!loadingBlocksTrueFalse){
+        //     const firstPage = lastPages - limitPage
+        // }
+
+        const firstPage = loadingBlocksTrueFalse ? 0 : (lastPages - limitPage)
+
         setCurrentBd(bd.data.slice(firstPage, lastPages))
 
-    }, [currentPage,bd])
+    }, [currentPage, bd])
 
     return <Fragment>
         <div className="gallery">
-        {/* {console.log(`id ${typeof (id)}, blogDb ${galleryDb.loading} props.match.params ${props.match.params.id} blogItem ${galleryItem}`)} */}
-        {isLoading && (currentBd.length===0)&& <Spinner />}
-        {(!isLoading ) && <GalleryPhotoItems db={currentBd} />}        
+            {/* {console.log(`id ${typeof (id)}, blogDb ${galleryDb.loading} props.match.params ${props.match.params.id} blogItem ${galleryItem}`)} */}
+            {isLoading && (currentBd.length === 0) && <Spinner />}
+            {(!isLoading) && <GalleryPhotoItems db={currentBd} />}
 
-        {/* {!!id && !!galleryItem && <PhotoGallery data={galleryItem}/>} */}
-    </div>
-    {(!isLoading && response) && <PaginationFigures
+            {/* {!!id && !!galleryItem && <PhotoGallery data={galleryItem}/>} */}
+        </div>
+        {(!isLoading && response) && <PaginationFigures
+            totalCount={totalCount}
+            limit={limitPage}
+            flipping={flipping} />}
+        {(!isLoading && response) && <LoadingBlocks
             totalCount={totalCount}
             limit={limitPage}
             flipping={flipping} />}
@@ -83,14 +93,15 @@ export default withFreedomstoreService()(GalleryPhoto);
 
 
 const GalleryPhotoItems = ({ db }) => {
-
+    console.log(db)
     return <SRLWrapper>
         <div className="photos_wrapper">
             <LazyLoad height={100}>
                 {db.map((body) => {
                     return <div className="photos_img" key={body.id}>
-                            <img src={body.url} alt={body.alt} />
-                        </div>                  
+                        <img src={body.url} alt={body.alt} />
+                    </div>
+
 
                 })}
 
