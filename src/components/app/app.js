@@ -10,10 +10,10 @@ import Header from "../header";
 import Blog from "../blog";
 import Gallery from "../gallery";
 import Travel from "../travel";
-// import {Page1} from "../pages";
 import PhotoGallery from "../gallery/photo-gallery";
 import Footer from "../footer";
-// import NavigationBurger from "../navigation/navigation-burger";
+import BlogItem from "../blog/blog-item";
+import { Page } from "../pages";
 const App = ({freedomstoreService}) =>{
        
 
@@ -28,12 +28,11 @@ const App = ({freedomstoreService}) =>{
         
         
             <Routes>
-            <Route path="/blog/:id?" element={<Blog/>}/>
-            {/* <Route path="/gallery/:id?" element={<Gallery/>}/>  */}
+            <Route path="/blog" element={<Blog/>}/>
+            <Route path="/blog/:id" element={<Page/>}>
+            </Route>
             <Route path="/gallery" element={<Gallery/>}/> 
             <Route path="/gallery/:id" element={<PhotoGallery/>}/> 
-            <Route path="/gallery/:id/:page" element={<PhotoGallery/>}/> 
-            {/* <Route path="/photo" element={<PhotoGallery/>}/>  */}
             <Route path="/travel/:id?" element={<Travel/>}/>
             </Routes>
         

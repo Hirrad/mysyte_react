@@ -1,65 +1,71 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect,Fragment} from "react";
 
 import './blog.scss'
 import BlogItem from "./blog-item";
 import {withFreedomstoreService} from "../hoc";
 import Spinner from "../spinner";
 import {useParams} from "react-router-dom";
+import { useFetch } from "../../hooks";
 import {Page} from "../pages";
+import { PaginationFigures,LoadingBlocks } from "../pagination";
+const Blog = (props) => {
+console.log('tut')
+const { id: idParam } = useParams();
 
-const Blog_orig = (props) => {
+const url = `/on-a-hikes?populate=background_image`
+const [{ response, isLoading, error }, doFetch] = useFetch(url);
+const [totalCount, setTotalCount] = useState(1)
+const [bd, setBd] = useState([])
+const [limitPage] = useState(5)
+const [currentPage, setCurrentPage] = useState(1)
+const [currentBd, setCurrentBd] = useState([])
+const [loadingBlocksTrueFalse, setLoadingBlocksTrueFalse] = useState(false)
 
-//
-//     store={
-//         id:null,
-//     loading:true,
-//         blogDB: null,
-//         blogItem:null
-// }
-    const [id, setId] = useState(null),
-        // [loading,setLoading]=useState(true),
-        [blogDb, setBlogDb] = useState({
-            Db: null,
-            loading: true
-        }),
-        [blogItem, setBlogItem] = useState(null)
-        const {id:idParam}=useParams();
+const { dataCorrection } = props.freedomstoreService
+const flipping = (page, loadingBlocks = false) => {
+    setCurrentPage(page)
+    setLoadingBlocksTrueFalse(loadingBlocks)
+}
+useEffect(() => {
+    doFetch();
+}, [idParam])
 
-    useEffect(() => {
-        let cancelled = false;
-        const {getBlogItems, getBlogItemsItem} = props.freedomstoreService
-        const id = +props.match.params.id
+useEffect(() => {
+    if (!response) return
+    
+    setBd(dataCorrection('blog', response))
+    setTotalCount(dataCorrection('blog', response).data.length)
+}, [response])
 
+useEffect(() => {
+    console.log(bd)
+    if (bd.length === 0) return
+    const lastPages = currentPage * limitPage
+    const firstPage = loadingBlocksTrueFalse ? 0 : (lastPages - limitPage)
+    setCurrentBd(bd.data.slice(firstPage, lastPages))
+}, [currentPage, bd])
 
-        console.log(getBlogItems())
-        console.log(blogDb)
-        const res = getBlogItems();
-        !cancelled && setBlogDb({
-            Db: res,
-            loading: false
-        });
-        console.log(blogDb)
-        !cancelled && setId(id);
-        console.log(`in id or not ${blogDb.loading}`)
-        if (!!id) {
-            console.log(`into id ${getBlogItemsItem}`)
-            const item = getBlogItemsItem(+id);
-            setBlogItem(item)
-        }
-        return () => cancelled = true;
+return <Fragment>
+<div className="wrapper_blog">
+        {isLoading && <Spinner/>}
+        {(!isLoading && currentBd.length!==0) && <BlogItem bd={currentBd}/>}
 
-    }, [idParam,blogDb,props.freedomstoreService.id,props.freedomstoreService,props.match.params.id])
-
-    return <div className="wrapper_blog">
-        {console.log(`id ${typeof (id)}, blogDb ${blogDb.loading} props.match.params ${props.match.params.id} blogItem ${blogItem}`)}
-        {blogDb.loading && <Spinner/>}
-        {(!blogDb.loading && !id) && <BlogItem blogItemDb={blogDb.Db}/>}
-
-        {!!id && !!blogItem && <Page data={blogItem}/>}
+        {/* {!!id && !!blogItem && <Page data={blogItem}/>} */}
     </div>
-    // return  <BlogItem />
+    {(!isLoading && response) && <PaginationFigures
+        totalCount={totalCount}
+        limit={limitPage}
+        flipping={flipping} />}
+    {(!isLoading && response) && <LoadingBlocks
+        totalCount={totalCount}
+        limit={limitPage}
+        flipping={flipping} />}
+</Fragment>
+    
+
+
 
 
 }
 
-export default withFreedomstoreService()(Blog_orig);
+export default withFreedomstoreService()(Blog);
