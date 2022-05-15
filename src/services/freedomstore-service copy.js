@@ -38,6 +38,29 @@ export default class FreedomstoreService {
                                     }
                          })
                 } 
+                case 'blog':
+                    // if (!db.data.attributes.images) return
+                    // console.log(db)
+                    return {
+                        data:db.data.map(body=>{
+                            return {
+                                id: body.id,
+                                title: body.attributes.title,  
+                                description:body.attributes.description,              
+                                url:`${this.__dbUrlI+body.attributes.background_image.data.attributes.formats.medium.url}`
+                                   }
+                        }),
+                        pagination:db.meta.pagination
+                    };
+                    case 'blog_item':
+                    // if (!db.data.attributes.images) return
+                    console.log(db.data)
+                    return {
+                        id: db.data.id,
+                        title: db.data.attributes.title,  
+                        textr:db.data.attributes.textr.replaceAll('/uploads/', `${this.__dbUrlI}/uploads/`)
+                        
+                    };
                    
             
                 
