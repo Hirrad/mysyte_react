@@ -12,7 +12,7 @@ const Blog = (props) => {
 console.log('tut')
 const { id: idParam } = useParams();
 
-const url = `/on-a-hikes?populate=background_image`
+const url = `/blogs?populate=background_image`
 const [{ response, isLoading, error }, doFetch] = useFetch(url);
 const [totalCount, setTotalCount] = useState(1)
 const [bd, setBd] = useState([])

@@ -1,136 +1,120 @@
-import React, {useEffect, useState} from "react";
+import React, {useState, useEffect,Fragment} from "react";
+
 import './travel.scss'
-import TravelItem from "./travel-item";
-import {Page} from "../pages";
+import TravelItem from "./travel-item"
+import {withFreedomstoreService} from "../hoc";
 import Spinner from "../spinner";
 import {useParams} from "react-router-dom";
-
-import {withFreedomstoreService} from "../hoc";
-
+import { useFetch } from "../../hooks";
+import {Page} from "../pages";
+import { PaginationFigures,LoadingBlocks } from "../pagination";
 const Travel = (props) => {
+const { id: idParam } = useParams();
 
-    const [id, setId] = useState(null),
-        // [loading,setLoading]=useState(true),
-        [travelDb, setTravelDb] = useState({
-            Db: null,
-            loading: true
-        }),
-        [treverItem, setTreverItem] = useState(null)
-        const {id:idParam}=useParams();
-    useEffect(() => {
-        let cancelled = false;
-        const {getTravelBd, getTravelItem} = props.freedomstoreService
-        const id = +idParam
+const url = `/on-a-hikes?populate=background_image`
+const [{ response, isLoading, error }, doFetch] = useFetch(url);
+const [totalCount, setTotalCount] = useState(1)
+const [bd, setBd] = useState([])
+const [limitPage] = useState(5)
+const [currentPage, setCurrentPage] = useState(1)
+const [currentBd, setCurrentBd] = useState([])
+const [loadingBlocksTrueFalse, setLoadingBlocksTrueFalse] = useState(false)
 
+const { dataCorrection } = props.freedomstoreService
+const flipping = (page, loadingBlocks = false) => {
+    setCurrentPage(page)
+    setLoadingBlocksTrueFalse(loadingBlocks)
+}
+useEffect(() => {
+    doFetch();
+}, [idParam])
 
-        console.log(getTravelBd())
-        console.log(travelDb)
-        const res = getTravelBd();
-        !cancelled && setTravelDb({
-            Db: res,
-            loading: false
-        });
-        console.log(travelDb)
-        !cancelled && setId(id);
-        console.log(`in id or not ${travelDb.loading}`)
-        if (!!id) {
+useEffect(() => {
+    if (!response) return
+    
+    setBd(dataCorrection('blog', response))
+    setTotalCount(dataCorrection('blog', response).data.length)
+}, [response])
 
-            const item = getTravelItem(+id);
-            setTreverItem(item)
-        }
-        return () => cancelled = true;
+useEffect(() => {
+    console.log(bd)
+    if (bd.length === 0) return
+    const lastPages = currentPage * limitPage
+    const firstPage = loadingBlocksTrueFalse ? 0 : (lastPages - limitPage)
+    setCurrentBd(bd.data.slice(firstPage, lastPages))
+}, [currentPage, bd])
 
-    }, [idParam,props.freedomstoreService,travelDb])
+return <Fragment>
 
-
-    return <div className="wrapper_travel">
-
-        {console.log(`id ${typeof (id)}, blogDb ${travelDb.loading} props.match.params ${props.match.params.id} blogItem ${treverItem}`)}
-        {travelDb.loading && <Spinner/>}
-        {(!travelDb.loading && !id) && <TravelItem dataTravel={travelDb.Db}/>}
-
-        {(!!id && !!treverItem) && <Page data={treverItem}/>}
-        {/*<div className="travel">*/}
-        {/*    <div className="travel_content">*/}
-        {/*        <div className="travel_subtitle"><span></span>01.12.1234<span></span>*/}
-        {/*        </div>*/}
-        {/*        <div className="travel_tittle">What level of hiker are you?</div>*/}
-        {/*        <div className="travel_picture"><img src={Pic1} alt=""/></div>*/}
-        {/*        <div className="travel_description">Determining what level of hiker you are can be an important tool*/}
-        {/*            when*/}
-        {/*            planning future hikes. This hiking level guide will help you plan hikes according to different hike*/}
-        {/*            ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –*/}
-        {/*            novice, moderate, advanced moderate, expert, or expert backpacker?*/}
-        {/*        </div>*/}
-
-        {/*        <div className="travel_footer"><a href="page.html">read more </a><FaLongArrowAltRight/></div>*/}
-        {/*    </div>*/}
-
-
-        {/*</div>*/}
-        {/*<div className="travel">*/}
-        {/*    <div className="travel_content">*/}
-        {/*        <div className="travel_subtitle"><span></span>01.12.1234<span></span>*/}
-        {/*        </div>*/}
-        {/*        <div className="travel_tittle">What level of hiker are you?</div>*/}
-        {/*        <div className="travel_picture"><img src={Pic2} alt=""/></div>*/}
-        {/*        <div className="travel_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid*/}
-        {/*            delectus, doloribus eaque eligendi id libero maiores molestiae quia quos? Amet asperiores, at cumque*/}
-        {/*            deserunt eius est explicabo facere harum id impedit ipsa ipsam itaque laudantium libero magni maxime*/}
-        {/*            modi neque nesciunt quibusdam quis quisquam reiciendis rem repellendus sint sunt ullam vel velit*/}
-        {/*            veritatis voluptatem voluptatum? Cumque laudantium optio qui reiciendis ut, voluptas. Aliquam at*/}
-        {/*            beatae delectus ducimus fugiat nobis praesentium quaerat repellendus veritatis vitae! Aliquid*/}
-        {/*            asperiores delectus earum libero maiores mollitia nobis numquam provident quaerat sapiente, sed sit*/}
-        {/*            soluta voluptatem! Ab adipisci dolores, enim facilis laborum neque perspiciatis possimus*/}
-        {/*            repudiandae.*/}
-        {/*        </div>*/}
-
-        {/*        <div className="travel_footer"><a href="page.html">read more </a><FaLongArrowAltRight/></div>*/}
-        {/*    </div>*/}
-
-
-        {/*</div>*/}
-        {/*<div className="travel">*/}
-        {/*    <div className="travel_content">*/}
-        {/*        <div className="travel_subtitle"><span></span>01.12.1234<span></span>*/}
-        {/*        </div>*/}
-        {/*        <div className="travel_tittle">What level of hiker are you?</div>*/}
-        {/*        <div className="travel_picture"><img src={Pic3} alt=""/></div>*/}
-        {/*        <div className="travel_description">Determining what level of hiker you are can be an important tool*/}
-        {/*            when*/}
-        {/*            planning future hikes. This hiking level guide will help you plan hikes according to different hike*/}
-        {/*            ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –*/}
-        {/*            novice, moderate, advanced moderate, expert, or expert backpacker?*/}
-        {/*        </div>*/}
-
-        {/*        <div className="travel_footer"><a href="page.html">read more </a><FaLongArrowAltRight/></div>*/}
-        {/*    </div>*/}
-
-
-        {/*</div>*/}
-        {/*<div className="travel">*/}
-        {/*    <div className="travel_content">*/}
-        {/*        <div className="travel_subtitle"><span/>01.12.1234<span/>*/}
-        {/*        </div>*/}
-        {/*        <div className="travel_tittle">What level of hiker are you?</div>*/}
-        {/*        <div className="travel_picture"><img src={Pic4} alt=""/></div>*/}
-        {/*        <div className="travel_description">Determining what level of hiker you are can be an important tool*/}
-        {/*            when*/}
-        {/*            planning future hikes. This hiking level guide will help you plan hikes according to different hike*/}
-        {/*            ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you –*/}
-        {/*            novice, moderate, advanced moderate, expert, or expert backpacker?*/}
-        {/*        </div>*/}
-
-        {/*        <div className="travel_footer"><a href="page.html">read more </a><FaLongArrowAltRight/></div>*/}
-        {/*    </div>*/}
-
-
-        {/*</div>*/}
-
+<div className="wrapper_travel">
+        {isLoading && <Spinner/>}
+        {(!isLoading && currentBd.length!==0) && <TravelItem bd={currentBd}/>}
+        {(!isLoading && response) && <PaginationFigures
+        totalCount={totalCount}
+        limit={limitPage}
+        flipping={flipping} />}
+    {(!isLoading && response) && <LoadingBlocks
+        totalCount={totalCount}
+        limit={limitPage}
+        flipping={flipping} />}
+            
 
     </div>
 
+    
+</Fragment>
+    
+
+
+
+
 }
 
-
 export default withFreedomstoreService()(Travel);
+
+
+// const Travel = (props) => {
+
+//     const [id, setId] = useState(null),
+//         // [loading,setLoading]=useState(true),
+//         [travelDb, setTravelDb] = useState({
+//             Db: null,
+//             loading: true
+//         }),
+//         [treverItem, setTreverItem] = useState(null)
+//         const {id:idParam}=useParams();
+//     useEffect(() => {
+//         let cancelled = false;
+//         const {getTravelBd, getTravelItem} = props.freedomstoreService
+//         const id = +idParam
+
+
+//         console.log(getTravelBd())
+//         console.log(travelDb)
+//         const res = getTravelBd();
+//         !cancelled && setTravelDb({
+//             Db: res,
+//             loading: false
+//         });
+//         console.log(travelDb)
+//         !cancelled && setId(id);
+//         console.log(`in id or not ${travelDb.loading}`)
+//         if (!!id) {
+
+//             const item = getTravelItem(+id);
+//             setTreverItem(item)
+//         }
+//         return () => cancelled = true;
+
+//     }, [idParam,props.freedomstoreService,travelDb])
+
+
+//     return <div className="wrapper_travel">
+//         {travelDb.loading && <Spinner/>}
+//         {(!travelDb.loading && !id) && <TravelItem dataTravel={travelDb.Db}/>}
+
+            
+
+//     </div>
+
+// }

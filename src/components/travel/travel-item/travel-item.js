@@ -3,17 +3,17 @@ import './trevel-item.scss';
 import ItemFooter from "../../item-footer";
 // import {FaLongArrowAltRight} from "../../buttons/font-awesome";
 
-const TravelItem = (props) => {
-    const {dataTravel} = props;
-    return dataTravel.map((body, index) => {
-        const {data, tittle, picture, description,id} = body;
+const TravelItem = ({bd}) => {
+   
+    return bd.map((body) => {
+        const {url, title, description,id} = body;
         // const {data, tittle, picture, description, text} = body;
-        return <div className="travel" key={index}>
+        return <div className="travel" key={id}>
             <div className="travel_content" >
-                <div className="travel_subtitle"><span></span>{data}<span></span>
+                <div className="travel_subtitle"><span></span>Data<span></span>
                 </div>
-                <div className="travel_tittle">{tittle}</div>
-                <div className="travel_picture"><img src={picture} alt=""/></div>
+                <div className="travel_tittle">{title}</div>
+                <div className="travel_picture"><img src={url} alt=""/></div>
                 <div className="travel_description">{description}
                 </div>
 {/*<ItemFooter/>*/}

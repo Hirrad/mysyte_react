@@ -58,7 +58,7 @@ export default class FreedomstoreService {
                     return {
                         id: db.data.id,
                         title: db.data.attributes.title,  
-                        textr:db.data.attributes.textr.replaceAll('/uploads/', `${this.__dbUrlI}/uploads/`)
+                        textr:db.data.attributes.text.replaceAll('/uploads/', `${this.__dbUrlI}/uploads/`)
                         
                     };
                    

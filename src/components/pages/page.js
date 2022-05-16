@@ -9,7 +9,7 @@ const Page = (props) => {
     console.log('tut')
     const { id: idParam } = useParams();
 
-    const url = `/on-a-hikes/${idParam}`
+    const url = `/blogs/${idParam}`
     const [{ response, isLoading, error }, doFetch] = useFetch(url);
     const [totalCount, setTotalCount] = useState(1)
 
