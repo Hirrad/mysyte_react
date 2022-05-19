@@ -3,13 +3,17 @@ import { SRLWrapper } from "simple-react-lightbox";
 import './page.scss';
 import { withFreedomstoreService } from "../hoc";
 import Spinner from "../spinner";
-import { useParams } from "react-router-dom";
+import { useParams,useLocation } from "react-router-dom";
 import { useFetch } from "../../hooks";
+import { switchFetch } from "../../utilis";
 const Page = (props) => {
-    console.log('tut')
+    
+    // console.log(useLocation().pathname.replaceAll(/[^A-Za-z]/g,""))
     const { id: idParam } = useParams();
-
-    const url = `/blogs/${idParam}`
+const {pathname}=useLocation();
+// console.log(switchFetch(pathname,idParam))
+    // const url = `/blogs/${idParam}`
+    const url=switchFetch(pathname,idParam);
     const [{ response, isLoading, error }, doFetch] = useFetch(url);
     const [totalCount, setTotalCount] = useState(1)
 
@@ -20,15 +24,15 @@ const Page = (props) => {
         doFetch();
     }, [idParam])
     if (response) {
-        console.log(dataCorrection('blog_item',response))
+        // console.log(dataCorrection('blog_item',response))
     }
 
     return <div className="page">
         {isLoading && <Spinner />}
         {(!isLoading && response) &&
             <SRLWrapper>
-        <h1 className='mb-3'>{dataCorrection('blog_item',response).title}</h1>
-        <div dangerouslySetInnerHTML={{__html:dataCorrection('blog_item',response).textr}}/>
+        {/* <h1 className='mb-3'>{dataCorrection('blog_item',response).title}</h1> */}
+        <div dangerouslySetInnerHTML={{__html:dataCorrection('blog_item',response).text}}/>
         
        
 
