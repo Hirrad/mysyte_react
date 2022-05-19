@@ -14,10 +14,10 @@ const NavigationPc=()=>{
                 <li className="nav-tittle "><Link to="/">freedom</Link></li>
                 <li className="nav">
                     <ul>
-                        <li><Link to="/gallery/">Галерея</Link></li>
-                        <li><Link to="/about/">Обо мне</Link></li>
-                        <li><Link to="/blog/">Блог</Link></li>
-                        <li><Link to="/travel/">В поход с нами</Link></li>
+                        <li><Link to="/gallery">Галерея</Link></li>
+                        <li><Link to="/about">Обо мне</Link></li>
+                        <li><Link to="/blog">Блог</Link></li>
+                        <li><Link to="/travel">В поход с нами</Link></li>
                     </ul>
 
                 </li>

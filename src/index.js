@@ -13,17 +13,19 @@ import store from "./store";
 const freedomstoreService= new FreedomstoreService();
 
 ReactDOM.render(
+    <React.StrictMode>
     <Provider store={store}>
         <ErrorBoundry>
-                <FreedomstoreServiceProvider value={freedomstoreService}>
                         <SimpleReactLightbox>
+                        <FreedomstoreServiceProvider value={freedomstoreService}>
                          <Router>
                              <App/>
                              </Router>
+                             </FreedomstoreServiceProvider>
                          </SimpleReactLightbox>
                      
-                </FreedomstoreServiceProvider>
         </ErrorBoundry>
-        </Provider>,
+        </Provider>
+        </React.StrictMode>,
     document.getElementById('root')
 );

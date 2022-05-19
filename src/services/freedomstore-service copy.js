@@ -54,11 +54,11 @@ export default class FreedomstoreService {
                     };
                     case 'blog_item':
                     // if (!db.data.attributes.images) return
-                    console.log(db.data)
+                    // console.log(db.data.hasOwnProperty('fuck'))
                     return {
                         id: db.data.id,
                         title: db.data.attributes.title,  
-                        textr:db.data.attributes.text.replaceAll('/uploads/', `${this.__dbUrlI}/uploads/`)
+                        text:db.data.attributes.text?db.data.attributes.text.replaceAll('/uploads/', `${this.__dbUrlI}/uploads/`):''
                         
                     };
                    

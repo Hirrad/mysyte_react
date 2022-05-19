@@ -37,7 +37,7 @@ useEffect(() => {
 }, [response])
 
 useEffect(() => {
-    console.log(bd)
+    // console.log(bd)
     if (bd.length === 0) return
     const lastPages = currentPage * limitPage
     const firstPage = loadingBlocksTrueFalse ? 0 : (lastPages - limitPage)

@@ -9,7 +9,7 @@ const LoadingBlocks = ({ totalCount, limit, flipping }) => {
 //  useEffect(() => {
 //      if(page>currentCount) setPage(1)
 //  },[page])
- console.log('foo')
+//  console.log('foo')
     return (
         
         (page>currentCount||currentCount===1)?null:<div className='flex flex-wrap mt-3' >

@@ -7,7 +7,7 @@ const Footer =()=>{
 
         <div className="footer_logo">
             <div className="logo">
-                <span><a href="page.html">freedom</a></span>
+                <span><Link to='/' >freedom</Link></span>
                 <div className="slogan">Get out there & discover your next slope, mountain & destination!</div>
             </div>
 
