@@ -1,5 +1,10 @@
 @import "../veriable/variable";
 .page{
+  figure {
+    img {
+      width:100%
+    }
+  }
   & h1 {
     text-align: center;
     margin: 10px 0 20px 0;
