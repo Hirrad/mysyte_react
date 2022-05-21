@@ -1,45 +1,63 @@
-import React, {Component} from "react";
+import React, {useState,useEffect} from "react";
 import {slide as Menu} from 'react-burger-menu'
-import {Link} from "react-router-dom";
+import {Link,NavLink} from "react-router-dom";
 import './navigation-burger.scss';
 import {FaFacebook, FaInstagram, FaUserCircle} from "../../buttons/font-awesome";
 
-class NavigationBurger extends Component {
-    state={
-        menuOpen: false
+const NavigationBurger =({db})=> {
+    const home = db.data.find((data) => {
+        return data.attributes.home === true
+    });
+    const [menuOpen,setMenuOpen]= useState(false)
+
+
+   const handleStateChange = ({isOpen})=> {
+    setMenuOpen(isOpen)
     }
-    showSettings(event) {
-        event.preventDefault();
+  const  closeMenu= (e)=> {
+        setMenuOpen(false)
 
     }
-    handleStateChange (state) {
-        this.setState({menuOpen: state.isOpen})
-    }
-    closeMenu () {
-        this.setState({menuOpen: false})
-    }
-    toggleMenu () {
-        this.setState(state => ({menuOpen: !state.menuOpen}))
-    }
 
-    render() {
+    
         // NOTE: You also need to provide styles, see https://github.com/negomi/react-burger-menu#styling
 
         return (
-            <Menu right  isOpen={this.state.menuOpen}
-                  onStateChange={(state) => this.handleStateChange(state)} width={250}>
+            <Menu right  isOpen={menuOpen}
+            pageWrapId={ "root" } 
+            outerContainerId={ "burgerConteiner" } 
+                  onStateChange={handleStateChange} width={250}>
                 <ul>
-                    <li className="nav-tittle"><Link to="/" onClick={() => this.closeMenu()}>freedom</Link></li>
-                    <li><Link className="nav-item" to="/gallery/" onClick={() => this.closeMenu()}>Галерея</Link></li>
-                    <li><Link className="nav-item" to="/about/" onClick={() => this.closeMenu()}>Обо мне</Link></li>
-                    <li><Link className="nav-item" to="/blog/" onClick={() => this.closeMenu()}>Блог</Link></li>
-                    <li><Link className="nav-item" to="/travel/" onClick={() => this.closeMenu()}>В поход с нами</Link></li>
+                    {db.data.map((data, index) => {
+                        if (data.attributes.home) {
+                         return   <li className="nav-tittle" key={index}>
+                            <NavLink to={data.attributes.url_navigation}
+                             onClick={(e) => closeMenu(e)}>
+                             {data.attributes.name}
+                             </NavLink>
+                             </li>
+ 
+                        }
+                           return <li key={index}>
+                                <NavLink to={data.attributes.url_navigation}                                
+                                onClick={(e) => closeMenu(e)}
+                                className="nav-item">
+                                {data.attributes.name}
+                                </NavLink>
+                                </li>
+
+                            
+                        })}
+                    {/* <li><Link className="nav-item" to="/gallery/" onClick={(e) => closeMenu(e)}>Галерея</Link></li>
+                    <li><Link className="nav-item" to="/about/" onClick={(e) => closeMenu(e)}>Обо мне</Link></li>
+                    <li><Link className="nav-item" to="/blog/" onClick={(e) => closeMenu(e)}>Блог</Link></li>
+                    <li><Link className="nav-item" to="/travel/" onClick={(e) => closeMenu(e)}>В поход с нами</Link></li> */}
                     <li className="nav-account" >
                         <Link to='' onClick={() => this.closeMenu()}><FaUserCircle/>
                             <span>Account</span></Link>
                     </li>
-                    <li><Link to='' className="nav-icon" onClick={() => this.closeMenu()}><FaFacebook/></Link>
-                        <Link to='' className="nav-icon" onClick={() => this.closeMenu()}><FaInstagram/></Link>
+                    <li><Link to='' className="nav-icon" onClick={(e) => closeMenu(e)}><FaFacebook/></Link>
+                        <Link to='' className="nav-icon" onClick={(e) => closeMenu(e)}><FaInstagram/></Link>
                     </li>
                 </ul>
 
@@ -47,6 +65,6 @@ class NavigationBurger extends Component {
             </Menu>
         );
     }
-}
+
 
 export default NavigationBurger;
