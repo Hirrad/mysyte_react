@@ -10,7 +10,7 @@ console.log('item',bd)
         bd.map((body,index)=>{
             return <div className="blog" key={body.id}>
                 <div className="blog_content">
-                <BlogItemNumber number={index+1}/>
+                <BlogItemNumber number={index+1} date={body.date}/>
                     <div className="blog_tittle">{body.tittle}</div>
                     <div className="blog_description">
                         {body.description}

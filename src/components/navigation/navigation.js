@@ -8,7 +8,7 @@ const Navigation =()=> {
     const [db, setDb]= useState([])
     const url='/navigations'
     const [{response, isLoading, error},doFetch]=useFetch(url);
-    console.log(mobile)
+    // console.log(mobile)
     const widthScreen= ()=>{
         setMobile(document.documentElement.clientWidth)
     }

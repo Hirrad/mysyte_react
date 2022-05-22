@@ -73,6 +73,9 @@ return <Fragment>
 export default withFreedomstoreService()(Travel);
 
 
+
+
+
 // const Travel = (props) => {
 
 //     const [id, setId] = useState(null),

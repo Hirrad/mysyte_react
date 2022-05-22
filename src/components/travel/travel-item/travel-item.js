@@ -1,6 +1,7 @@
 import React from "react";
 import './trevel-item.scss';
 import ItemFooter from "../../item-footer";
+import Moment from 'react-moment';
 // import {FaLongArrowAltRight} from "../../buttons/font-awesome";
 
 const TravelItem = ({bd}) => {
@@ -10,7 +11,11 @@ const TravelItem = ({bd}) => {
         // const {data, tittle, picture, description, text} = body;
         return <div className="travel" key={id}>
             <div className="travel_content" >
-                <div className="travel_subtitle"><span></span>Data<span></span>
+                <div className="travel_subtitle"><span></span>
+            <span>
+            <Moment date={body.date} format="YYYY.MM.DD"/>
+            </span>    
+                <span></span>
                 </div>
                 <div className="travel_tittle">{title}</div>
                 <div className="travel_picture"><img src={url} alt=""/></div>
@@ -26,3 +31,8 @@ const TravelItem = ({bd}) => {
 }
 
 export default TravelItem;
+// import Moment from 'react-moment';
+
+//         <Moment date={date} format="YYYY-MM-DD HH:mm">
+               
+//             </Moment>

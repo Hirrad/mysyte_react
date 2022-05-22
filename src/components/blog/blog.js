@@ -9,7 +9,7 @@ import { useFetch } from "../../hooks";
 import {Page} from "../pages";
 import { PaginationFigures,LoadingBlocks } from "../pagination";
 const Blog = (props) => {
-console.log('tut')
+// console.log('tut')
 const { id: idParam } = useParams();
 
 const url = `/blogs?populate=background_image`
@@ -38,7 +38,7 @@ useEffect(() => {
 }, [response])
 
 useEffect(() => {
-    console.log(bd)
+    // console.log(bd)
     if (bd.length === 0) return
     const lastPages = currentPage * limitPage
     const firstPage = loadingBlocksTrueFalse ? 0 : (lastPages - limitPage)

@@ -65,6 +65,7 @@
     font-family: 'Chronicle Display Black';
     font-size: 0.86rem;
     letter-spacing: 2px;
+    justify-content: space-between;
     align-items: center;
     position: relative;
 
@@ -74,10 +75,20 @@
       border-top: 1px solid $secondColor;
       width: 100%;
       &:first-child{
-        margin-right: 10px;
+        // width:50%;
+        padding-right: 10%;
       }
       &:nth-child(2){
-        margin-left: 10px;
+        // padding-left: 10%;
+        // width:100%;
+        border:none;
+        text-align: center;
+      }
+      &:nth-child(3){
+        padding-left: 10%;
+        // width:50%
+        
+
       }
 
 
@@ -211,5 +222,36 @@
     .wrapper_travel {
       width: 70%;
     }
+  }
+}
+@media (max-width: 400px) {
+
+  .travel {
+
+    &_subtitle{
+      & > span {
+       
+        &:first-child{
+          padding-right: 10%;
+          width:50%
+        }
+
+        &:nth-child(3){
+          padding-left: 10%;
+          width:50%
+
+   
+          
+  
+        };
+    }
+ 
+
+
+
+
+
+  }
+
   }
 }

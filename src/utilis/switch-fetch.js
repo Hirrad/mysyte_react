@@ -1,7 +1,7 @@
 // import {useLocation,useParams} from 'react-router-dom'
 
 const switchFetch=(path,param)=>{
-console.log(path,param)
+// console.log(path,param)
 // const path=useLocation().pathname.replaceAll(/[^A-Za-z]/g,"");
 // const param =useParams(id)?useParams(id):'';
 let apiFetch;

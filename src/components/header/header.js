@@ -23,14 +23,14 @@ useEffect(() => {
 useEffect(() => {
 if(!responseQuotes) return
 setQuotesRandom(getRandomMinMax(1,responseQuotes.meta.pagination.total))
-console.log(responseQuotes)
+// console.log(responseQuotes)
 },[responseQuotes])
 
 useEffect(() => {
 if(quotesRandom===0) return
 doFetchQuote()
 },[quotesRandom,doFetchQuote])
-console.log(responseQuote)
+// console.log(responseQuote)
 if(!isLoadingQuote) return <Spinner/>
     return responseQuote&&responseQuote.data&&<header>
 
@@ -42,7 +42,7 @@ if(!isLoadingQuote) return <Spinner/>
                     <div className="header_text">{responseQuote.data.attributes.text}</div>
                     <TitleCap/>
                 </div>
-                <SidePanelFollowUs/>
+                {/* <SidePanelFollowUs/> */}
             </div>
         </div>
     

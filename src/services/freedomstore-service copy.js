@@ -47,18 +47,20 @@ export default class FreedomstoreService {
                                 id: body.id,
                                 title: body.attributes.title,  
                                 description:body.attributes.description,              
-                                url:`${this.__dbUrlI+body.attributes.background_image.data.attributes.formats.medium.url}`
+                                url:`${this.__dbUrlI+body.attributes.background_image.data.attributes.formats.medium.url}`,
+                                date:body.attributes.publishedAt
                                    }
                         }),
                         pagination:db.meta.pagination
                     };
                     case 'blog_item':
                     // if (!db.data.attributes.images) return
-                    // console.log(db.data.hasOwnProperty('fuck'))
+                    // console.log(db.data)
                     return {
                         id: db.data.id,
                         title: db.data.attributes.title,  
-                        text:db.data.attributes.text?db.data.attributes.text.replaceAll('/uploads/', `${this.__dbUrlI}/uploads/`):''
+                        text:db.data.attributes.text?db.data.attributes.text.replaceAll('/uploads/', `${this.__dbUrlI}/uploads/`):'',
+                        date:db.data.attributes.publishedAt
                         
                     };
                    

@@ -19,9 +19,12 @@ transition: all .5s linear;
 .header {
   //
   &-container {
-    padding-top: 1%;
-    //display: flex;
-    //align-items: center;
+    // padding-top: 1%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
     //flex-direction: column;
     transition: all .5s linear;
     // -webkit-text-stroke: .05px $fourthColor;
@@ -36,12 +39,16 @@ transition: all .5s linear;
     justify-items: center;
     align-items: center;
     flex-direction: column;
+    height: 100%  ;
+      display: flex;
+    justify-content: center;
+    align-content: center;;
     
   }
 
   &_heading {
     position: relative;
-    margin-top: 200px;
+    // margin-top: 200px;
 
 
     //& .follow {
@@ -122,7 +129,7 @@ transition: all .5s linear;
 @media (max-width: 1130px) {
   .header {
     &_heading {
-      margin-top: 150px;
+      // margin-top: 150px;
     }
 
     &_wrapper {
@@ -147,7 +154,7 @@ transition: all .5s linear;
   }
   .header {
     &_heading {
-      margin-top: 50px;
+      // margin-top: 50px;
 
       & .follow {
         display: none;

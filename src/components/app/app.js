@@ -26,7 +26,7 @@ useEffect(() => {
     
 },[load])
            
-console.log(load)
+// console.log(load)
     // console.log(freedomstoreService.getBlog())
 if(!load) return <Spinner/>
 

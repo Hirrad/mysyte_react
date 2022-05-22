@@ -10,7 +10,7 @@ const TitleCap=()=>{
 
                                      spy={true}
                                      smooth={true}
-                                     offset={-70}
+                                     offset={0}
                                      duration={500}>
         <div className="header_footer"><span className="scroll-down">scroll down </span>
 

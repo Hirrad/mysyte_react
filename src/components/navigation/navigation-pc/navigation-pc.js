@@ -28,7 +28,7 @@ const NavigationPc = ({ db }) => {
 
                                     spy={true}
                                     smooth={true}
-                                    offset={-70}
+                                    offset={0}
                                     duration={500}>
 
                                     <NavLink to={data.attributes.url_navigation}>
