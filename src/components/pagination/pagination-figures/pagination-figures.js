@@ -38,10 +38,6 @@ const PaginationFigures = ({ totalCount,
             }
             return sequenceArray(currentPage - 1, maxInPage)
         }
-
-        if (currentPage - maxInPage === 0) {
-            return sequenceArray(1, maxInPage)
-        }
         return sequenceArray(endCount - maxInPage + 1, maxInPage)
     }
     const currentCount = currentArrayPages(currentPage, endCount)
