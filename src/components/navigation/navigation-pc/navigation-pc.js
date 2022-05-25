@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaUserCircle } from "../../buttons/font-awesome";
-import { Link as Skrol } from "react-scroll";
+import {scroller}  from "react-scroll";
 import './navigation-pc.scss'
 
 const NavigationPc = ({ db }) => {
@@ -22,20 +22,26 @@ const NavigationPc = ({ db }) => {
 
                             if (data.attributes.home) return null
                             return <li key={index}>
-                                <Skrol
+                                {/* <Skrol
                                     to='container'
                                     activeClass="active"
 
                                     spy={true}
                                     smooth={true}
                                     offset={0}
-                                    duration={500}>
+                                    duration={500}> */}
 
-                                    <NavLink to={data.attributes.url_navigation}>
+                                    <NavLink to={data.attributes.url_navigation}
+                                    onClick ={()=>  scroller.scrollTo('container',{
+                                        spy:true,
+                                    smooth:true,
+                                    offset:0,
+                                    duration:500
+                                    })}>
                                         {data.attributes.name}
                                     </NavLink>
 
-                                </Skrol>
+                                {/* </Skrol> */}
                             </li>
 
 
