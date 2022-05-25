@@ -1,0 +1,48 @@
+@import "../../veriable/variable";
+.pagination-figures {
+    
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0;
+    
+    & a {
+        width:100%;
+        display:block;
+    }
+
+    &-item{
+        display:block;
+        padding: 0px 10px;        
+        &-control{
+            color: $firstColor;
+        }
+        
+       
+    }
+    & .disabled &-link {
+        color:#7c7b78!important;
+        pointer-events: none;         
+    }
+    & .actived{
+        color:$firstColor!important;
+        pointer-events: none;         
+    }
+    &-link{
+        width:100%;
+        display:block;
+        color: $secondColor;
+        text-decoration: none;
+        
+        &:hover{
+            color:$firstColor;
+        }
+    }
+
+
+    
+  
+}
+

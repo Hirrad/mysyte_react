@@ -5,7 +5,7 @@ import BlogItemNumber from "./blog-item-number";
 import ItemFooter from "../../item-footer";
 
 const BlogItem =({bd})=>{
-console.log('item',bd)
+// console.log('item',bd)
     return (
         bd.map((body,index)=>{
             return <div className="blog" key={body.id}>
