@@ -14,7 +14,6 @@ const PaginationFigures = ({ totalCount,
 
     const currentArrayPages = (currentPage = 1, endCount) => {
         if (endCount <= 10) {
-            console.log('endCount<=10')
             return sequenceArray(1, endCount)
 
         }

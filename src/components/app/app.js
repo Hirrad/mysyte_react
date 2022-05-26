@@ -12,7 +12,9 @@ import Travel from "../travel";
 import PhotoGallery from "../gallery/photo-gallery";
 import Footer from "../footer";
 import Spinner from "../spinner";
-import Navigation from "../navigation";
+// import Navigation from "../navigation";
+import NavigationInPage from "../navigation/navigation-in-page"
+
 // import BlogItem from "../blog/blog-item";
 import { Page } from "../pages";
 const App = ({freedomstoreService}) =>{
@@ -38,8 +40,8 @@ if(!load) return <Spinner/>
         </span> 
         
         <Header/>
-        <div className='container' id='burgerConteiner'>
-         
+        <div className='container'>
+         <NavigationInPage/>
          
         
         
