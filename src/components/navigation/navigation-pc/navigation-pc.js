@@ -54,7 +54,7 @@ const NavigationPc = ({ db }) => {
 
                 </li>
 
-                <li className="nav-account">
+                {/* <li className="nav-account">
                     <FaUserCircle />
                     <span>Account</span>
                 </li>
@@ -65,7 +65,7 @@ const NavigationPc = ({ db }) => {
                     </div>
 
 
-                </li>
+                </li> */}
             </ul>
 
 

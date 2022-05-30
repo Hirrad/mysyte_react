@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect,useContext} from "react";
 // import {Link, animateScroll as scroll} from "react-scroll";
 import './header.scss'
 import Navigation from "../navigation";
 // import {FaFacebook, FaInstagram, FaLongArrowAltDown} from "../buttons/font-awesome";
-import SidePanelFollowUs from "./side-panel-follow-us";
+// import SidePanelFollowUs from "./side-panel-follow-us";
+import {CurrentUserContext} from '../freedomstore-service-context'
 import TitleCap from "./title-cap";
 import { useFetch } from "../../hooks";
 import {getRandomMinMax} from '../../utilis'
@@ -16,8 +17,9 @@ const Header = () => {
     const [{ response:responseQuotes, isLoading:isLoadingQuotes,  error:errorQuotes},doFetchQuotes]=useFetch(urlQuotes);
     const urlQuote=`/quotes/${quotesRandom}`
     const [{ response:responseQuote, response:isLoadingQuote, response:errorQuote},doFetchQuote]=useFetch(urlQuote);
-useEffect(() => {
-    
+    const [currentUserState, dispatch] = useContext(CurrentUserContext)
+// console.log('currentUserState',currentUserState)
+    useEffect(() => {    
     doFetchQuotes();
 },[doFetchQuotes])
 useEffect(() => {
@@ -25,13 +27,22 @@ if(!responseQuotes) return
 setQuotesRandom(getRandomMinMax(1,responseQuotes.meta.pagination.total))
 // console.log(responseQuotes)
 },[responseQuotes])
+useEffect(() => {
+    if(!errorQuotes) return
+    console.log('4')
+    dispatch({
+        type:"SET_ERROR",
+        payload:errorQuotes
+    })
 
+},[errorQuotes,dispatch])
+console.log(errorQuotes)
 useEffect(() => {
 if(quotesRandom===0) return
 doFetchQuote()
 },[quotesRandom,doFetchQuote])
 // console.log(responseQuote)
-if(!isLoadingQuote) return <Spinner/>
+isLoadingQuote&&<Spinner/>
     return responseQuote&&responseQuote.data&&<header>
 
         <Navigation/>

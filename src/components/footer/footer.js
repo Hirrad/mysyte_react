@@ -3,17 +3,18 @@ import "./footer.scss"
 import {Link} from "react-router-dom";
 
 const Footer =()=>{
+    const year = new Date();
     return <div className="wrapper_footer">
 
         <div className="footer_logo">
             <div className="logo">
                 <span><Link to='/' >freedom</Link></span>
-                <div className="slogan">Get out there & discover your next slope, mountain & destination!</div>
+                <div className="slogan">Живіть сьогодні і зараз, завтра не існує!</div>
             </div>
 
-            <div className="copy">Copyright 2019 MNTN, Inc. Terms & Privacy</div>
+            <div className="copy">Copyright {year.getFullYear()} Terms & Privacy</div>
         </div>
-        <div className="footer_more">
+        {/* <div className="footer_more">
             <ul>
                 <li><Link to="page.html">More on The Blog</Link></li>
                 <li><Link to="page.html">About MNTN</Link></li>
@@ -22,7 +23,7 @@ const Footer =()=>{
                 <li><Link to="page.html">Contact Us</Link></li>
                 <li><Link to="page.html">Privacy Policy</Link></li>
             </ul>
-        </div>
+        </div> */}
     </div>
 }
 export default Footer;

@@ -3,6 +3,7 @@
   font-family: sans-serif;
   height: 100vh;
   margin-bottom: 15px;
+  
 }
 
 #page-wrap {
@@ -10,8 +11,12 @@
   overflow: auto;
   top: 50%;
   position: relative;
+  
 }
-
+.bm-burger-button{
+  top: 2%!important;
+  right: 2%!important;
+}
 .bm-item {
   //display: inline-block;
 
@@ -25,13 +30,15 @@ display: flex!important;
   color: #d1d1d1;
   transition: color 0.2s;
    &  .nav-item{
-
+width: 100%;
        text-decoration: none;
        color: $firstColor;
 
 
-     & .nav-tittle {
+
+     & .nav-tittle{
        color: $secondColor;
+       
      }
 
    }
@@ -42,7 +49,11 @@ display: flex!important;
     font-size: 1.2em;
     padding-bottom: 10px;
     text-align: center;
+    font-size: 1.5rem;
 
+  }
+  &-list{
+    width: 100%;
   }
 
 }
@@ -77,10 +88,12 @@ display: flex!important;
 
 /* General sidebar styles */
 .bm-menu {
+  width:100%;
   background: #000;
   opacity: .8;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
+  
 }
 
 /* Morph shape necessary with bubble or elastic */
@@ -89,8 +102,12 @@ display: flex!important;
 }
 
 /* Wrapper for item list */
-.bm-item-list {
-  color: #b8b7ad;
+.bm-item{
+  width: 100%;
+  &-list {
+    color: #b8b7ad;
+}
+  
 }
 
 /* Styling of overlay */
@@ -110,7 +127,27 @@ display: flex!important;
 }
 .nav-tittle{
   max-width: 100%;
- & a{
 
- }
+  &--home{
+    width: 100%;
+
+    position:absolute;
+    top: 0;
+    right: 0;
+    
+    & a{
+      width: 100%;
+      
+     }
+  }
+ 
+}
+.nav{
+  &-icon{
+    margin:0 10%!important;
+    & a{
+      
+    }
+   
+  }
 }

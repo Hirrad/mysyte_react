@@ -1,5 +1,6 @@
 @import "./../veriable/variable";
 .wrapper_footer {
+  margin-top: 20px;
   //display: flex;
   //justify-content:space-between;
   width: 100%;
@@ -64,11 +65,12 @@
 }
 
 .slogan {
-  margin-top: 20px;
+  
   font-size: .8rem;
 }
 .copy{
-  font-size: .7rem;
+  margin-top: 20px;
+  font-size: .6rem;
   text-transform: uppercase;
 }
 @media (max-width:580px ) {

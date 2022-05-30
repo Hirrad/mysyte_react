@@ -5,9 +5,9 @@ import './navigation-burger.scss';
 import {FaFacebook, FaInstagram, FaUserCircle} from "../../buttons/font-awesome";
 
 const NavigationBurger =({db})=> {
-    const home = db.data.find((data) => {
-        return data.attributes.home === true
-    });
+    // const home = db.data.find((data) => {
+    //     return data.attributes.home === true
+    // });
     const [menuOpen,setMenuOpen]= useState(false)
 
 
@@ -24,13 +24,12 @@ const NavigationBurger =({db})=> {
 
         return (
             <Menu right  isOpen={menuOpen}
-            pageWrapId={ "root" } 
-            outerContainerId={ "burgerConteiner" } 
+            pageWrapId={ "root" }             
                   onStateChange={handleStateChange} width={250}>
                 <ul>
                     {db.data.map((data, index) => {
                         if (data.attributes.home) {
-                         return   <li className="nav-tittle" key={index}>
+                         return   <li className="nav-tittle nav-tittle--home" key={index}>
                             <NavLink to={data.attributes.url_navigation}
                              onClick={(e) => closeMenu(e)}>
                              {data.attributes.name}
@@ -52,10 +51,10 @@ const NavigationBurger =({db})=> {
                     <li><Link className="nav-item" to="/about/" onClick={(e) => closeMenu(e)}>Обо мне</Link></li>
                     <li><Link className="nav-item" to="/blog/" onClick={(e) => closeMenu(e)}>Блог</Link></li>
                     <li><Link className="nav-item" to="/travel/" onClick={(e) => closeMenu(e)}>В поход с нами</Link></li> */}
-                    <li className="nav-account" >
+                    {/* <li className="nav-account" >
                         <Link to='' onClick={() => this.closeMenu()}><FaUserCircle/>
                             <span>Account</span></Link>
-                    </li>
+                    </li> */}
                     <li><Link to='' className="nav-icon" onClick={(e) => closeMenu(e)}><FaFacebook/></Link>
                         <Link to='' className="nav-icon" onClick={(e) => closeMenu(e)}><FaInstagram/></Link>
                     </li>

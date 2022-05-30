@@ -1,5 +1,11 @@
-import {FreedomstoreServiceConsumer, FreedomstoreServiceProvider} from "./freedomstore-service-context";
-export {
+import {FreedomstoreServiceProvider,
     FreedomstoreServiceConsumer,
-    FreedomstoreServiceProvider
+    } from "./freedomstore-service-context";
+    import {CurrentUserContext,
+        CurrentUserProvider} from './current-user-context.js'
+export {
+    FreedomstoreServiceProvider,
+    FreedomstoreServiceConsumer,
+    CurrentUserContext,
+     CurrentUserProvider
 }

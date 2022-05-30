@@ -1,16 +1,43 @@
-const initialState = {
-    blog: ['1','er']
-}
-
-const reducer = (state = initialState, action) => {
+const reducer = (state, action) => {
     switch (action.type) {
-        case 'BLOG_LOADED':
+        case 'LOADING':
             return {
-                blog: action.blogLoaded,
+                ...state,
+                isLoading: true
+            };
+        case 'SET_AUTHORIZED':
+            return {
+                ...state,
+                isLoading: false,
+                isLoggedIn: true,
+                currentUser: action.payload
+            };
+        case 'SET_UNAUTHORIZED':
 
-            }
+            return {
+                ...state,
+                isLoggedIn: false
+            };
+            case 'SET_ERROR':
+                return {
+                    ...state,                    
+                    error: action.payload
+                };
         default:
             return state;
     }
-}
+
+};
+
+// const reducer = (state = initialState, action) => {
+//     switch (action.type) {
+//         case 'BLOG_LOADED':
+//             return {
+//                 blog: action.blogLoaded,
+
+//             }
+//         default:
+//             return state;
+//     }
+// }
 export default reducer;
