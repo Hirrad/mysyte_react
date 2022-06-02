@@ -5,9 +5,9 @@ import BlogItemNumber from "./blog-item-number";
 import ItemFooter from "../../item-footer";
 
 const BlogItem =({bd})=>{
-// console.log('item',bd)
+console.log('item',bd)
     return (
-        bd.map((body,index)=>{
+        bd.data.map((body,index)=>{
             return <div className="blog" key={body.id}>
                 <div className="blog_content">
                 <BlogItemNumber number={index+1} date={body.date}/>

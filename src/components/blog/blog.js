@@ -10,16 +10,20 @@ import { PaginationFigures,LoadingBlocks } from "../pagination";
 
 const Blog = (props) => {
 const { id: idParam } = useParams();
-const url = `/blogs?populate=background_image`
+const [currentPage, setCurrentPage] = useState(1)
+const [limitPage] = useState(10)
+// const url = `/blogs?populate=background_image`
+const url=`/blogs?pagination[page]=${currentPage}&pagination[pageSize]=${limitPage}&populate=background_image`
+
 const [{ response, isLoading, error }, doFetch] = useFetch(url);
 const [totalCount, setTotalCount] = useState(1)
 const [bd, setBd] = useState([])
-const [currentBd, setCurrentBd] = useState([])
+// const [currentBd, setCurrentBd] = useState([])
 const { dataCorrection } = props.freedomstoreService
 
 useEffect(() => {
     doFetch();
-}, [idParam,doFetch])
+}, [idParam,doFetch,currentPage])
 
 useEffect(() => {
     if (!response) return
@@ -29,8 +33,7 @@ useEffect(() => {
 }, [response,dataCorrection])
 
 ////// start Paginator
-const [currentPage, setCurrentPage] = useState(1)
-const [limitPage] = useState(1)
+
 const [loadingBlocksTrueFalse, setLoadingBlocksTrueFalse] = useState(false)
 
 const flipping = (page, loadingBlocks = false) => {
@@ -40,32 +43,23 @@ const flipping = (page, loadingBlocks = false) => {
 }
 
 
-useEffect(() => {
-    // console.log(bd)
-    if (bd.length === 0) return
-    const lastPages = currentPage * limitPage
-    const firstPage = loadingBlocksTrueFalse ? 0 : (lastPages - limitPage)
-    setCurrentBd(bd.data.slice(firstPage, lastPages))
-}, [currentPage, bd,limitPage,loadingBlocksTrueFalse])
+// useEffect(() => {
+//     // console.log(bd)
+//     if (bd.length === 0) return
+//     const lastPages = currentPage * limitPage
+//     const firstPage = loadingBlocksTrueFalse ? 0 : (lastPages - limitPage)
+//     setCurrentBd(bd.data.slice(firstPage, lastPages))
+// }, [currentPage, bd,limitPage,loadingBlocksTrueFalse])
 /////End Paginator
 
 
 
 
 return <Fragment>
-    {(!isLoading && response) && <PaginationFigures
-        totalCount={totalCount}
-        limit={limitPage}
-        flipping={flipping}
-        currentPage={currentPage} 
-        maxInPage={10}
-        ellipsisSeparator={true}
-        startEndButton={false}
-        nextForward={false}
-        />}
+    
 <div className="wrapper_blog">
         {isLoading && <Spinner/>}
-        {(!isLoading && currentBd.length!==0) && <BlogItem bd={currentBd}/>}
+        {(!isLoading && bd.length!==0) && <BlogItem bd={bd}/>}
 
         {/* {!!id && !!blogItem && <Page data={blogItem}/>} */}
     </div>
@@ -77,6 +71,16 @@ return <Fragment>
         
         
          />}
+         {(!isLoading && response) && <PaginationFigures
+        totalCount={response.meta.pagination.total}
+        limit={limitPage}
+        flipping={flipping}
+        currentPage={currentPage} 
+        maxInPage={10}
+        ellipsisSeparator={true}
+        startEndButton={false}
+        nextForward={false}
+        />}
 </Fragment>
     
 

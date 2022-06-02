@@ -54,11 +54,14 @@ const NavigationPc = ({ db }) => {
 
                 </li>
 
-                {/* <li className="nav-account">
-                    <FaUserCircle />
-                    <span>Account</span>
+                 <li className="nav-account">
+                 <Link to='/auth'>
+<FaUserCircle />
+                    <span>Account</span>    
+                 </Link>
+                    
                 </li>
-                <li className="follow__nav">
+                {/*<li className="follow__nav">
                     <div className="follow follow-nav">
                         <NavLink to=""><FaFacebook /></NavLink>
                         <Link to=""><FaInstagram /></Link>

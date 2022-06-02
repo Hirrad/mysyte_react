@@ -4,6 +4,7 @@ import './navigation-in-page.scss'
 import { switchPathname } from '../../../utilis'
 import { useFetch } from '../../../hooks'
 const NavigationInPage = () => {
+    
     const id = useLocation();
     const arrayPathname = id.pathname.split('/').slice(1);
     const category = arrayPathname[0]
@@ -14,7 +15,7 @@ const NavigationInPage = () => {
         if (!currentPage.api | !page) return
         doFetch();
     }, [currentPage.api, doFetch, page])
-    return arrayPathname[0] && <div className='navigation-in-page'>
+    return arrayPathname[0]&& <div className='navigation-in-page'>
         <span className=' navigation-in-page__home'>
             <Link to='/'>Головна</Link>
         </span>

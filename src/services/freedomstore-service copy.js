@@ -3,7 +3,7 @@ export default class FreedomstoreService {
     dataCorrection=(item, db)=> {
         if (!db.data) return
  // console.log(db.data.attributes.images.data[0].attributes.formats.medium)
-// console.log(db)
+console.log(db)
         switch (item) {
             case 'gallery_small':
                 return {
@@ -51,7 +51,7 @@ export default class FreedomstoreService {
                                 date:body.attributes.publishedAt
                                    }
                         }),
-                        pagination:db.meta.pagination
+                        // pagination:db.meta.pagination
                     };
                     case 'blog_item':
                     // if (!db.data.attributes.images) return

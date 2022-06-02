@@ -9,6 +9,7 @@ import TitleCap from "./title-cap";
 import { useFetch } from "../../hooks";
 import {getRandomMinMax} from '../../utilis'
 import Spinner from "../spinner";
+import {useLocation} from 'react-router-dom'
 // import {slide as Menu} from "react-burger-menu";
 
 const Header = () => {
@@ -18,15 +19,23 @@ const Header = () => {
     const urlQuote=`/quotes/${quotesRandom}`
     const [{ response:responseQuote, response:isLoadingQuote, response:errorQuote},doFetchQuote]=useFetch(urlQuote);
     const [currentUserState, dispatch] = useContext(CurrentUserContext)
-// console.log('currentUserState',currentUserState)
+/// console.log('currentUserState',currentUserState)
+let local=useLocation().pathname;
     useEffect(() => {    
     doFetchQuotes();
-},[doFetchQuotes])
+},[doFetchQuotes,local])
 useEffect(() => {
-if(!responseQuotes) return
+if(!responseQuotes) return 
 setQuotesRandom(getRandomMinMax(1,responseQuotes.meta.pagination.total))
 // console.log(responseQuotes)
 },[responseQuotes])
+// useEffect(() => {
+//     if(!responseQuotes) return
+//     setInterval(() => {
+//         setQuotesRandom(getRandomMinMax(1,responseQuotes.meta.pagination.total))
+//     }, 60000);
+// })
+
 useEffect(() => {
     if(!errorQuotes) return
     console.log('4')
@@ -36,7 +45,7 @@ useEffect(() => {
     })
 
 },[errorQuotes,dispatch])
-console.log(errorQuotes)
+console.log(useLocation().pathname)
 useEffect(() => {
 if(quotesRandom===0) return
 doFetchQuote()
@@ -46,6 +55,8 @@ isLoadingQuote&&<Spinner/>
     return responseQuote&&responseQuote.data&&<header>
 
         <Navigation/>
+                      
+
         <div className="header-container">
             <div className="header_heading">
                 <div className="header_wrapper">
@@ -54,7 +65,7 @@ isLoadingQuote&&<Spinner/>
                     <TitleCap/>
                 </div>
                 {/* <SidePanelFollowUs/> */}
-            </div>
+            </div>            
         </div>
     
     </header>

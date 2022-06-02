@@ -16,7 +16,8 @@ import Page404 from "../page404";
 // import Navigation from "../navigation";
 import NavigationInPage from "../navigation/navigation-in-page"
 import PageError from "../page-error"
-import  {useFetch}  from "../../hooks";
+import Authentication from "../authorization"
+// import  {useFetch}  from "../../hooks";
 // import BlogItem from "../blog/blog-item";
 import { Page } from "../pages";
 import { CurrentUserContext } from "../freedomstore-service-context";
@@ -25,18 +26,18 @@ const App = ({freedomstoreService}) =>{
     // const [{ isLoading, error},doFetch]= useFetch('/');
 const[currentUserState]=useContext(CurrentUserContext)
     const [load, setLoad]=useState(false)
-    const widthScreen= ()=>{
+   
+    const pageLoad= ()=>{
         setLoad(true)
     }
 
 useEffect(() => {
     // doFetch();
-   return window.addEventListener("load",widthScreen)
+   return window.addEventListener("load",pageLoad)
     
 },[load])
-        console.log(currentUserState.error.code) 
-// console.log(load)
-    // console.log(freedomstoreService.getBlog())
+ 
+
 if(!load) return <Spinner/>
 if(currentUserState.error&&currentUserState.error.code==='ERR_NETWORK'){
     return <PageError/>
@@ -50,8 +51,7 @@ if(currentUserState.error&&currentUserState.error.code==='ERR_NETWORK'){
         
         <Header/>
         <div className='container'>
-         <NavigationInPage/>
-         
+{       <NavigationInPage />}         
         
         
             <Routes>
@@ -64,6 +64,8 @@ if(currentUserState.error&&currentUserState.error.code==='ERR_NETWORK'){
             <Route path="/travel" element={<Travel/>}/>
             <Route path="/travel/:id" element={<Page/>}/>
             <Route path="/about" element={<Page/>}/>
+            
+            <Route path="/auth" element={<Authentication/>}/>
             <Route path="*" element={<Page404/>}/>
             </Routes>
         
@@ -76,4 +78,4 @@ if(currentUserState.error&&currentUserState.error.code==='ERR_NETWORK'){
 
 }
 
-export default withFreedomstoreService()(App);
+export default App;

@@ -6,7 +6,7 @@ import Moment from 'react-moment';
 
 const TravelItem = ({bd}) => {
    
-    return bd.map((body) => {
+    return bd.data.map((body) => {
         const {url, title, description,id} = body;
         // const {data, tittle, picture, description, text} = body;
         return <div className="travel" key={id}>

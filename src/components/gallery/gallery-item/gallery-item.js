@@ -4,7 +4,7 @@ import './gallery-item.scss'
 
 const GalleryItem =({db})=>{
     
-    return db.map((res) => {
+    return db.data.map((res) => {
         return <div className="gallery_box " key={res.id}>
             {/*<Link to={{ pathname: '/photo', state: { img_gallery: img_gallery} }}><img src={img_tittle} alt={name}/></Link>*/}
             <Link to={`/gallery/${res.id}`}>
