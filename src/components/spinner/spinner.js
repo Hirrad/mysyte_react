@@ -4,7 +4,7 @@ import {Bars} from 'react-loader-spinner'
 // import Loader from "react-loader-spinner";
 
 // import './spinner.css'
-const Spinner =() =>{
+const Spinner =({styLe}) =>{
     // return <Loader
     //     type="Puff"
     //     color="#00BFFF"
@@ -12,7 +12,7 @@ const Spinner =() =>{
     //     width={100}
 
     // />
-    return <div className='d-flex justify-content-center align-items-center vh-100'>
+    return <div className={styLe?styLe:'d-flex justify-content-center align-items-center vh-100'}>
         
         <Bars heigth="100"
      width="100"

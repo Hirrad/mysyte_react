@@ -1,3 +1,3 @@
 import useFetch from './useFetch';
-
-export  {useFetch}
+import useLocalStorage from './useLocalStorage'
+export  {useFetch,useLocalStorage}

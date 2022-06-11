@@ -1,4 +1,4 @@
-import React, {useState, useEffect,useContext} from "react";
+import React, {useState, useEffect,useContext, memo} from "react";
 // import {Link, animateScroll as scroll} from "react-scroll";
 import './header.scss'
 import Navigation from "../navigation";
@@ -38,14 +38,13 @@ setQuotesRandom(getRandomMinMax(1,responseQuotes.meta.pagination.total))
 
 useEffect(() => {
     if(!errorQuotes) return
-    console.log('4')
     dispatch({
         type:"SET_ERROR",
         payload:errorQuotes
     })
 
 },[errorQuotes,dispatch])
-console.log(useLocation().pathname)
+console.log('Header')
 useEffect(() => {
 if(quotesRandom===0) return
 doFetchQuote()

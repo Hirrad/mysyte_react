@@ -1,0 +1,239 @@
+@import '../../..//veriable/variable.scss';
+
+
+.account {
+    // display:flex;
+    // flex-direction:column;
+    // width: 100%;
+    // display:relative;
+    right: 0px;
+    // transition: 0.5s;
+    // transition: height 0.5s, width 5s 0.5s, scaleY 5s 1s;
+// overflow: hidden;
+position: absolute;
+width: 100% ;
+min-height:100vh;
+z-index: 9998;
+// pointer-events: none;
+
+    &.active {
+        //    padding-left: 150%;
+        // left:30px
+        .account__name--wrapper{
+            max-width:100%;
+            // transition: width .5s;
+            // transition: height 0.5s, width 5s 0.5s, scaleY 5s 1s;
+
+            .account__close{
+                height: 36px;
+                transition: height 0.5s;
+                width:36px;
+                margin-left: -150px;
+                z-index: 9999;
+                cursor: pointer;
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 18px;
+                    right: 0;
+                    width: 25px;
+                    border-top: 2px solid $secondColor;
+                    transform: rotate(-45deg);
+                    transition: opacity  0.5s ;
+                    opacity: 1;
+
+                }
+        
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 18px;
+                    right: 0;
+                    width: 25px;
+                    border-bottom: 2px solid $secondColor;
+                    transform: rotate(45deg);
+                    transition: opacity  0.5s ;
+                    opacity: 1;
+
+                }
+
+            }
+            .account__name{
+                // width:300px;
+                        transition: opacity  1s 1.5s;
+                        // transition:width 0.5 s , display  0.5 s;
+                // display:hidden;
+                       width:0%; 
+                       height: 0px;
+                       overflow:hidden;
+                    //    display: none;
+                    opacity: 0;
+                    // transform: scaleX(0);
+                    // background-color: azure;
+
+            }
+        }
+        .account__body {
+          max-height: 100%; 
+          font-size: 1.5rem;
+            // transform: scaleY(1);
+            width: 300px;
+            height:230px;
+        // right: 0;
+        display: flex;
+        flex-direction: column;
+        // background-color: #b8b7ad;;
+        border:1px solid $secondColor ;
+        background-color:rgba(0, 0, 0, 0.16) ;
+        // transition:width 0s 0.5s, height  1s 0.5s, background-color 1s 0.5s,border 1s 0.5s;
+        // visibility:visible;
+        // display: none;
+        transition: all 1s 0.5s
+        }
+        .account__list.account__list-username {
+            // // padding: 2%;
+            // // transform: scaleY(0);
+            // position: relative;
+            // // max-height: 0%;
+            // // background-color: bisque;
+            // width: 300px;
+            //     // height:300px;
+            //     transition:width 0s 0.5s, height  1s 0.5s, background-color 1s 0.5s;
+            text-align: center;
+
+    
+        }
+    }
+
+    &__close {
+        position: relative;
+        // display:block;
+        height: 0px;
+        align-self: flex-end;
+        width: 36px;
+        right: 0;
+        // display: none;
+        // transition:  height .5s;
+        // transition: height 0.5s 1s;
+        &:after {
+            content: '';
+            position: absolute;
+            top: 18px;
+            right: 0;
+            width: 25px;
+            border-top: 2px solid $secondColor;
+            transform: rotate(-45deg);
+            opacity: 0;
+            transition: opacity  0.5s 1s ;
+
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 18px;
+            right: 0;
+            width: 25px;
+            border-bottom: 2px solid $secondColor;
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: opacity  0.5s 1s ;
+
+        }
+        
+
+    }
+
+    &__name {
+        // width: 100%;
+        opacity: 1;
+        transition: all  1s 1.5s;
+
+        // width:250px;
+        // transform: scaleX(1);
+        &--wrapper {
+            // position: absolute;
+            display: flex;
+            flex-direction: column;
+            // justify-content:left;
+            right: 0;
+            text-align: right;
+            // transition: display  1s 1.5s;
+// 
+            // background-color: azure;
+
+
+        }
+        // position: absolute;
+        // margin-top:36px;
+        // width:300px;
+        // position:relative;
+        // top:36px;
+        // text-align: right;
+        // background-color: rgb(38, 184, 172);
+        // transition-delay:width .5s; 
+        // transition: width  1s;
+
+
+    }
+
+    // background-color: aqua;
+
+    &__body {
+        position: absolute;
+        // top: 57px;
+        width: 300px;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        height:0px;
+        // background-color: rgb(38, 38, 184);
+        // height: 100px;
+        // transition:width 1s 0.5s, height  1s 0.5s, background-color 1s 0.5s;
+        // visibility: hidden;
+        // overflow:hidden;
+        // display: none;
+        transition:  all 1s 0.5s;
+        overflow: hidden;
+        border:0px solid $secondColor ;
+
+    }
+
+    &__list {
+        padding: 10px 10px 0px 20px;
+        &:last-child{
+            padding-bottom: 10px;
+            
+        }
+        svg {
+            margin-right: 15px;
+            color: $secondColor;
+        }
+// padding: 0;
+// margin: 0;
+        // padding: 0px 10px 0 15px;
+        // height: 100%;
+        // width: 100%;
+        
+
+    }
+
+    &__list.account__list-username {
+        // // padding: 2%;
+        // // transform: scaleY(0);
+        // position: relative;
+        // // max-height: 0%;
+        // background-color: bisque;
+        // width: 0px;
+        //     height:50px;
+        //     transition:width 0s 0.5s, height  1s 5s, background-color 1s 0.5s;
+        text-align: center;
+
+
+    }
+
+    &--icons {
+        margin: 0 5px;
+    }
+
+}

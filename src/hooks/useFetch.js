@@ -1,6 +1,6 @@
 import { useState, useEffect,useCallback} from "react";
 import axios from "axios";
-
+import useLocalStorage from "./useLocalStorage";
 const  useFetch =  (url) =>{
     
     const _baseUrl='http://localhost:1337/api';
@@ -10,7 +10,7 @@ const  useFetch =  (url) =>{
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [option, setOption] = useState({})
-
+    const[tokenJWS]=useLocalStorage('tokenJWS');    
     const  doFetch = useCallback((option = {}) => {
         setOption(option);
         setIsLoading(true);
@@ -20,7 +20,7 @@ const  useFetch =  (url) =>{
             ...option,
             ...{
                 headers:{
-                    // authorization:token?`Token ${token}`:''
+                    authorization:tokenJWS?`Bearer ${tokenJWS}`:''
                 }
             }
         }

@@ -3,7 +3,15 @@ import {
     FaInstagram,
     FaFacebook,
     FaLongArrowAltDown,
-    FaLongArrowAltRight
+    FaLongArrowAltRight,
+    FaEyeSlash,
+    FaEye,
+    FaPersonHiking,
+    FaMountains,
+    FaMountain,
+    FaCheck,
+    FaPersonThroughWindow,
+    FaGear
 } from "./font-awesome";
 
 export {
@@ -11,5 +19,13 @@ export {
     FaInstagram,
     FaUserCircle,
     FaLongArrowAltDown,
-    FaLongArrowAltRight
+    FaLongArrowAltRight,
+    FaEyeSlash,
+    FaEye,
+    FaPersonHiking,
+    FaMountains,
+    FaMountain,
+    FaCheck,
+    FaPersonThroughWindow,
+    FaGear
 }

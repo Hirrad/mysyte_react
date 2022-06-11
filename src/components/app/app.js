@@ -63,9 +63,9 @@ if(currentUserState.error&&currentUserState.error.code==='ERR_NETWORK'){
             <Route path="/gallery/:id" element={<PhotoGallery/>}/> 
             <Route path="/travel" element={<Travel/>}/>
             <Route path="/travel/:id" element={<Page/>}/>
-            <Route path="/about" element={<Page/>}/>
+            <Route path="/about" element={<Page/>}/> 
             
-            <Route path="/auth" element={<Authentication/>}/>
+            {/* <Route path="/auth" element={<Authentication/>}/>*/}
             <Route path="*" element={<Page404/>}/>
             </Routes>
         

@@ -4,30 +4,30 @@ import NavigationPc from "./navigation-pc";
 import NavigationBurger from "./navigation-burger";
 import useFetch from '../../hooks/useFetch'
 const Navigation =()=> {
-    const [mobile, setMobile]=useState(document.documentElement.clientWidth)
+    // const [mobile, setMobile]=useState(document.documentElement.clientWidth)
     const [db, setDb]= useState([])
     const url='/navigations'
     const [{response, isLoading, error},doFetch]=useFetch(url);
     // console.log(mobile)
-    const widthScreen= ()=>{
-        setMobile(document.documentElement.clientWidth)
-    }
+    // const widthScreen= ()=>{
+    //     setMobile(document.documentElement.clientWidth)
+    // }
 useEffect(() => {
     doFetch();
 },[doFetch])
-useEffect(() => {
-   return window.addEventListener("resize",widthScreen)
+// useEffect(() => {
+//    return window.addEventListener("resize",widthScreen)
     
-},[mobile])
+// },[mobile])
 useEffect(() => {
     if(!response) return
     setDb(response)
 },[response])
 
        return(
-           !isLoading&&response&&db.length!==0?(mobile<=980)?
-           <NavigationBurger db={db}/>:<NavigationPc db={db}/>:null   
-
+        //    !isLoading&&response&&db.length!==0?(mobile<=980)?
+        //    <NavigationBurger db={db}/>:<NavigationPc db={db}/>:null   
+        !isLoading&&response&&db.length!==0&&<NavigationPc db={db}/> 
        ) 
 }
 
