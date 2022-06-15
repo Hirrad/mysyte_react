@@ -8,6 +8,7 @@ import { useFetch } from '../../hooks'
 import Spinner from "../spinner"
 import { CurrentUserContext } from '../freedomstore-service-context'
 import { useLocalStorage } from '../../hooks'
+import { errorMassageLogAuth } from '../../utilis'
 const Authorization = ({ active, setActive }) => {
     const [isSuccessfullSubmit, setIsSuccessfullSubmit] = useState(false)
     const urlReg = '/auth/local/register'
@@ -22,6 +23,7 @@ const [,setToken]=useLocalStorage('tokenJWS')
     const emailRef = useRef(null)
     const loginRef = useRef(null)
     const passwordRef = useRef(null)
+    let messageError;
     //Star* when the active modal window scroll does not work
     !active && document.body.classList.remove('noclick')
     // active && document.body.classList.add('noclick');
@@ -70,6 +72,17 @@ if(loginRegistration==='log'){
         });
 
     }
+    if(errorReg){
+        messageError=  errorMassageLogAuth(errorReg.data.error.message)
+    }
+    if(errorAuth){
+        messageError=  errorMassageLogAuth(errorAuth.data.error.message)
+    }
+// useEffect(()=>{
+//     if(!errorReg && !errorAuth) return
+//     messageError=errorMassageLogAuth(errorReg)
+// },[errorReg,errorAuth,messageError])
+
 useEffect(()=>{
     if(!responseAuth) return
     setToken(responseAuth.jwt)
@@ -82,7 +95,9 @@ useEffect(()=>{
 // if(currentUserState.currentUser.hasOwnProperty('id')){
 //     setIsSuccessfullSubmit(true)
 // }
-console.log('response', responseAuth)
+console.log('response', responseReg)
+console.log('errorReg', errorReg)
+console.log('errorAuth', errorAuth)
     // useEffect(() => {
     //     console.log('response', responseReg)
     // }, [responseReg])
@@ -94,7 +109,7 @@ console.log('response', responseAuth)
     // }
     // console.log('response', responseReg)
     // console.log('error', errorReg)
-    // console.log('auth')
+    console.log(messageError)
 useEffect(()=>{
     if(!isSuccessfullSubmit) return
     setActive(false)
@@ -126,9 +141,12 @@ useEffect(()=>{
                         <input type="text" className="form__input" placeholder="Введіть логін"
                             ref={loginRef}
                             disabled={isLoadingReg}
+                            minlength="5"
+                            required
                         />
-                        <span className='error'> Щось не так з логіном</span>
-                        <span className='check'> <FaCheck /></span>
+                        {(errorReg||errorAuth)&&messageError&&
+                            messageError.username&&<span className='error'> {messageError.username}</span>}
+                        {/* <span className='check'> <FaCheck /></span> */}
                     </label>}
 
 
@@ -136,9 +154,11 @@ useEffect(()=>{
                         Пошта:
                         <input type="email" className="form__input" placeholder="Введіть пошту"
                             ref={emailRef}
-                            disabled={isLoadingReg} />
-                        <span className='error'> Щось не так з поштою</span>
-                        <span className='check'> <FaCheck /></span>
+                            disabled={isLoadingReg}
+                            required />
+                        {(errorReg||errorAuth)&&messageError&&
+                            messageError.email&&<span className='error'> {messageError.email}</span>}
+                        {/* <span className='check'> <FaCheck /></span> */}
                     </label>
 
                     <label className="label password_label">
@@ -149,8 +169,11 @@ useEffect(()=>{
                             placeholder="Введіть пароль"
                             ref={passwordRef}
                             disabled={isLoadingReg}
+                            minlength="6"
+                            required
                         />
-                        <span className='error'> Щось не так з паролем</span>
+                        {(errorReg||errorAuth)&&messageError&&
+                            messageError.password&&<span className='error'> {messageError.password}</span>}
                         <div className="password_btn" onClick={() => setShowPassword((show) =>!show)} >
                             {showPassword ? <FaEye /> : <FaEyeSlash />}
                             {/* <img src={eys} alt="img"

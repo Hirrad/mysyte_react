@@ -39,7 +39,7 @@ const  useFetch =  (url) =>{
             }).catch(error => {
             // console.log('error', error);
             setIsLoading(false);
-            setError(error)
+            setError(error.response)
         })
     },[isLoading,option,url])
 

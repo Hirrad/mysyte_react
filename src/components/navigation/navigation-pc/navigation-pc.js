@@ -18,7 +18,7 @@ const NavigationPc = ({ db }) => {
         e.stopPropagation(e);
         setCloseOpenBurger(closeBurger => !closeBurger)
         // setModalDropList(closeModal=>!closeModal)
-        console.log('tuta')
+        console.log(e.target)
     }
     //     const [mobile, setMobile]=useState(document.documentElement.clientWidth)
 
@@ -47,14 +47,16 @@ const NavigationPc = ({ db }) => {
     return <div className={closeOpenBurger ? 'nav__container active' : 'nav__container'}
         onClick={(e) => pushingBurger(e)}>
         <div className={closeOpenBurger ? 'nav__burger active' : 'nav__burger'}
-            onClick={(e) => pushingBurger(e)}>
+            >
             <span></span>
         </div>
         <nav onClick={(e) => e.stopPropagation(e)}>
 
-            <ul>
-                <li className="nav-tittle "><NavLink to={home.attributes.url_navigation}
-                    onClick={(e) => pushingBurger(e)}>
+            <ul >
+                <li className="nav-tittle " 
+                onClick={(e) => e.stopPropagation(e)}>
+                <NavLink to={home.attributes.url_navigation}
+                    >
                     {home.attributes.name}
                 </NavLink></li>
                 <li className="nav">
@@ -62,7 +64,7 @@ const NavigationPc = ({ db }) => {
                         {db.data.map((data, index) => {
 
                             if (data.attributes.home) return null
-                            return <li key={index} onClick={(e) => pushingBurger(e)}>
+                            return <li key={index} >
                                 {/* <Skrol
                                     to='container'
                                     activeClass="active"
@@ -73,12 +75,12 @@ const NavigationPc = ({ db }) => {
                                     duration={500}> */}
 
                                 <NavLink to={data.attributes.url_navigation}
-                                    onClick={() => scroller.scrollTo('container', {
+                                    onClick={(e) =>{ scroller.scrollTo('container', {
                                         spy: true,
                                         smooth: true,
                                         offset: 0,
                                         duration: 500
-                                    })}>
+                                    });  pushingBurger(e)}}>
                                     {data.attributes.name}
                                 </NavLink>
 
