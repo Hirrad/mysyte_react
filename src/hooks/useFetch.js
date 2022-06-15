@@ -5,6 +5,8 @@ const  useFetch =  (url) =>{
     
     const _baseUrl='http://localhost:1337/api';
     // const _baseUrl='https://freedomapi.herokuapp.com/api';
+    // const _baseUrl='http://192.168.105:1337/api';
+
 
     const [response, setResponse] = useState(null);
     const [isLoading, setIsLoading] = useState(false);

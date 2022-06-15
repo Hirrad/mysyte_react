@@ -13,9 +13,10 @@ const reducer = (state, action) => {
                 currentUser: action.payload
             };
         case 'SET_UNAUTHORIZED':
-
+console.log('SET_UNAUTHORIZED')
             return {
                 ...state,
+                currentUser: null,
                 isLoggedIn: false
             };
             case 'SET_ERROR':

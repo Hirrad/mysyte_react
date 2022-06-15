@@ -105,7 +105,7 @@ useEffect(()=>{
         onClick={() => closeLogReg()}>
         <div className="modal--form"
             onClick={(e) => e.stopPropagation()}>
-            {(isLoadingReg | isLoadingAuth) && <Spinner styLe={'spinerAuth'} />}
+            {(isLoadingReg | isLoadingAuth) ? <Spinner styLe={'spinerAuth'} />:null}
             <span className="close"
                 onClick={() => closeLogReg()}></span>
             {responseReg && <div className='responseOk'>

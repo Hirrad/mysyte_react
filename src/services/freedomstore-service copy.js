@@ -1,5 +1,6 @@
 export default class FreedomstoreService {
     __dbUrlI='http://localhost:1337'
+    // __dbUrlI='http://192.168.0.105:1337'
     dataCorrection=(item, db)=> {
         if (!db.data) return
  // console.log(db.data.attributes.images.data[0].attributes.formats.medium)

@@ -38,7 +38,7 @@ useEffect(() => {
 },[load])
  
 
-if(!load) return <Spinner/>
+// if(!load) return <Spinner/>
 if(currentUserState.error&&currentUserState.error.code==='ERR_NETWORK'){
     return <PageError/>
 }

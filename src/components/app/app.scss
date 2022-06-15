@@ -60,6 +60,7 @@ body {
 @media (max-width:600px) {
   .container{
     max-width: 100%;
+    overflow: hidden;
   }
 }
 @media (max-width: 980px) {

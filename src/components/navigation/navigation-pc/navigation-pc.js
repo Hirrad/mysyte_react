@@ -1,33 +1,68 @@
-import React,{useContext, useState} from "react";
+import React, { useContext, useState, useEffect, useCallback } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaUserCircle } from "../../buttons/font-awesome";
 import { CurrentUserContext } from "../../freedomstore-service-context";
-import {scroller}  from "react-scroll";
+import { scroller } from "react-scroll";
 import Authorization from "../../authorization";
 import Account from './account'
 import './navigation-pc.scss'
 
 const NavigationPc = ({ db }) => {
-    const [modalActive, setModalActive]=useState(false)
-    const [currentUserState]=useContext(CurrentUserContext);
-console.log(currentUserState)
+    const [modalRegistration, setlRegistration] = useState(false)
+    const [closeOpenBurger, setCloseOpenBurger] = useState(false)
+
+    const [currentUserState] = useContext(CurrentUserContext);
+
+    const pushingBurger = (e) => {
+        e.preventDefault(e);
+        e.stopPropagation(e);
+        setCloseOpenBurger(closeBurger => !closeBurger)
+        // setModalDropList(closeModal=>!closeModal)
+        console.log('tuta')
+    }
+    //     const [mobile, setMobile]=useState(document.documentElement.clientWidth)
+
+    //     console.log(mobile)
+
+    //     const widthScreen= ()=>{
+
+    //         setMobile(document.documentElement.clientWidth)
+
+    //     }
+    // if(mobile===981){
+    //     setCloseOpenBurger(closeBurger=>!closeBurger)
+    // }
+    // useEffect(() => {
+
+    //    return window.addEventListener("resize",widthScreen)
+
+
+
+    // },[mobile])
+
+    console.log(currentUserState)
     const home = db.data.find((data) => {
         return data.attributes.home === true
     });
-    return <div className="nav__container">
+    return <div className={closeOpenBurger ? 'nav__container active' : 'nav__container'}
+        onClick={(e) => pushingBurger(e)}>
+        <div className={closeOpenBurger ? 'nav__burger active' : 'nav__burger'}
+            onClick={(e) => pushingBurger(e)}>
+            <span></span>
+        </div>
+        <nav onClick={(e) => e.stopPropagation(e)}>
 
-        <nav>
-            <div className="nav__burger ">
-                <span></span>
-            </div>
             <ul>
-                <li className="nav-tittle "><NavLink to={home.attributes.url_navigation}>{home.attributes.name}</NavLink></li>
+                <li className="nav-tittle "><NavLink to={home.attributes.url_navigation}
+                    onClick={(e) => pushingBurger(e)}>
+                    {home.attributes.name}
+                </NavLink></li>
                 <li className="nav">
-                    <ul>
+                    <ul >
                         {db.data.map((data, index) => {
 
                             if (data.attributes.home) return null
-                            return <li key={index}>
+                            return <li key={index} onClick={(e) => pushingBurger(e)}>
                                 {/* <Skrol
                                     to='container'
                                     activeClass="active"
@@ -37,15 +72,15 @@ console.log(currentUserState)
                                     offset={0}
                                     duration={500}> */}
 
-                                    <NavLink to={data.attributes.url_navigation}
-                                    onClick ={()=>  scroller.scrollTo('container',{
-                                        spy:true,
-                                    smooth:true,
-                                    offset:0,
-                                    duration:500
+                                <NavLink to={data.attributes.url_navigation}
+                                    onClick={() => scroller.scrollTo('container', {
+                                        spy: true,
+                                        smooth: true,
+                                        offset: 0,
+                                        duration: 500
                                     })}>
-                                        {data.attributes.name}
-                                    </NavLink>
+                                    {data.attributes.name}
+                                </NavLink>
 
                                 {/* </Skrol> */}
                             </li>
@@ -60,32 +95,34 @@ console.log(currentUserState)
 
                 </li>
 
-                 { !currentUserState.isLoggedIn&&<li className="nav-account">
-                 <Link to='/'
-                 onClick={() =>setModalActive(true)}>
-<FaUserCircle />
-                    <span>Account</span>    
-                 </Link>
-                    
+                {!currentUserState.isLoggedIn && <li className="nav-account"
+                    onClick={(e) => pushingBurger(e)}>
+                    <Link to='/'
+                        onClick={() => setlRegistration(true)}>
+                        <FaUserCircle />
+                        <span>Account</span>
+                    </Link>
+
                 </li>}
-                {currentUserState.currentUser&&<li>
+                {currentUserState.isLoggedIn && <li>
                     {/* {currentUserState.currentUser.username} */}
-                    <Account username={currentUserState.currentUser.username}/>
+                    <Account username={currentUserState.currentUser.username}
+                     setCloseOpenBurger={setCloseOpenBurger}/>
                 </li>}
-                {/*<li className="follow__nav">
+                <li className="follow__nav">
                     <div className="follow follow-nav">
                         <NavLink to=""><FaFacebook /></NavLink>
                         <Link to=""><FaInstagram /></Link>
                     </div>
 
 
-                </li> */}
+                </li>
             </ul>
 
 
         </nav>
-        
-        {modalActive&&<Authorization active={modalActive} setActive={setModalActive}/>}
+
+        {modalRegistration && <Authorization active={modalRegistration} setActive={setlRegistration} />}
     </div>
 }
 // modalActive&&

@@ -10,10 +10,12 @@ const AuthorizationToken = ({children}) => {
     const [, dispatch] = useContext(CurrentUserContext)
     const [{response}, doFetch] = useFetch(`/users/me`);
     const [token] = useLocalStorage('tokenJWS')
+    console.log('auth',token)
     useEffect(() => {
         if (!token) {
             setCurrentUserState(state => ({
                 ...state,
+                // currentUser: null,
                 isLoggedIn: false
             }))
             return;
@@ -26,7 +28,7 @@ const AuthorizationToken = ({children}) => {
         // }))
         dispatch({type:'LOADING'})
         
-    }, [token, doFetch, setCurrentUserState])
+    }, [token, doFetch, setCurrentUserState,dispatch])
     useEffect(() => {
         if (!response) return;
         // setCurrentUserState(state => ({

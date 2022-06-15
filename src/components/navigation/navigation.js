@@ -10,14 +10,14 @@ const Navigation =()=> {
     const [{response, isLoading, error},doFetch]=useFetch(url);
     // console.log(mobile)
     // const widthScreen= ()=>{
-    //     setMobile(document.documentElement.clientWidth)
+        // setMobile(document.documentElement.clientWidth)
     // }
 useEffect(() => {
     doFetch();
 },[doFetch])
 // useEffect(() => {
 //    return window.addEventListener("resize",widthScreen)
-    
+    // 
 // },[mobile])
 useEffect(() => {
     if(!response) return
