@@ -14,8 +14,8 @@ const NavigationPc = ({ db }) => {
     const [currentUserState] = useContext(CurrentUserContext);
 
     const pushingBurger = (e) => {
-        e.preventDefault(e);
-        e.stopPropagation(e);
+        // e.preventDefault(e);
+        // e.stopPropagation(e);
         setCloseOpenBurger(closeBurger => !closeBurger)
         // setModalDropList(closeModal=>!closeModal)
         console.log(e.target)
