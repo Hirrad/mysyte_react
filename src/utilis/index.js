@@ -2,7 +2,7 @@ import makeCounter from "./count";
 import sequenceArray from './sequenceArray'
 import switchFetch from './switch-fetch'
 import getRandomMinMax from './get-random-min-max'
-import switchPathname from "./switch-pathname"
+import {switchPathname,switchCommit} from "./switch-pathname"
 import scroll from './scroll'
 import errorMassageLogAuth from "./error-massage-log-auth";
 export {
@@ -12,5 +12,6 @@ export {
     getRandomMinMax,
     switchPathname,
     scroll,
-    errorMassageLogAuth
+    errorMassageLogAuth,
+    switchCommit
 };

@@ -1,8 +1,10 @@
 @import "../veriable/variable";
 .page{
+  // overflow: hidden;
   figure {
     img {
-      width:100%
+      max-width:100%;
+      background-size: cover;
     }
   }
   & h1 {
@@ -10,7 +12,7 @@
     margin: 10px 0 20px 0;
   }
   & p{
-    text-indent: 2rem;
+    // text-indent: 2rem;
   }
   &__img{
     max-width: 32.5%;
@@ -18,7 +20,7 @@
     & img{
       width: 100%;
       //max-height: 500px;
-      overflow: hidden;
+      // overflow: hidden;
       object-fit: cover;
       border: 1px $secondColor solid;
     }

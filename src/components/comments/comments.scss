@@ -1,0 +1,112 @@
+@import "../veriable/variable.scss";
+
+.comment{
+   width: 80%;
+   margin: 0 auto;
+    &__wrapper{
+        display: flex;
+        flex-direction: column;
+        color: $secondColor;
+        margin-top: 20px;
+
+        
+    }
+    
+    &__text{
+        padding: 10px;
+        min-height: 100px;
+        background-color: $firstColor;
+        border-radius: 10px;
+        color: $fourthColor;
+
+    }
+    &__button{
+        margin: 10px 0px 10px 0px;
+        border: 1px solid $secondColor;
+        min-width: 30px;
+
+    }
+    .separator{
+        display: inline-block;
+        height: 1px;
+        margin: 0   auto;
+        width: 100%;
+        border-top:1px solid $secondColor;
+
+    }
+    .login{
+        // max-width: 100%;
+        // display: grid;
+        // align-items: center;
+        
+        // grid-template-columns: 3fr .5fr minmax(auto,1fr) .5fr .5fr;
+        // grid-template-rows: 36px;
+        height: 36px;
+        display: flex;
+        justify-content: space-between;
+        // justify-content: center;
+        align-content: center;
+        margin-top: 10px;
+
+        &__data{
+           
+           font-size: 1rem; 
+        }
+        &__wrapper{
+            display: flex;
+            max-width: 100%;
+        }
+        &__avatar, avatar{
+            img{
+                vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+            }
+        }
+        &__name{
+            margin: 0px 5px 0px 5px;
+        }
+        .action-buttons{
+            display: flex;
+        }
+        span{
+            margin: 0px 5px 0px 5px;
+
+            svg{
+                // height: 18px;
+                cursor: pointer;
+                &:hover{
+    color: $firstColor;
+                }
+        }
+            
+        }
+        &__send-button{
+            cursor: pointer;
+            &:hover{
+color: $firstColor;
+            }
+            &--ml{
+                margin-left: 10px;
+            }
+        }
+    }
+
+    textarea{
+        font-size: 1rem;
+        min-height: 100px;
+        border: 1px solid $secondColor;
+        border-radius: 10px;
+        background: $firstColor;
+
+    }
+}
+.visible{
+    cursor: pointer;
+    color: $secondColor;
+    margin: 0 auto;
+    &:hover{
+        color: $firstColor;
+                    }
+}
