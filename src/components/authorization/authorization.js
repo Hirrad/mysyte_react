@@ -12,11 +12,14 @@ import { errorMassageLogAuth } from '../../utilis'
 const Authorization = ({ active, setActive }) => {
     const [isSuccessfullSubmit, setIsSuccessfullSubmit] = useState(false)
     const urlReg = '/auth/local/register'
+    const urlMe = '/users/me'
     const [{ response: responseReg, isLoading: isLoadingReg, error: errorReg }, doFetchReg] = useFetch(urlReg);
     const urlAuth = '/auth/local/?populate=*'
     const [{ response: responseAuth, isLoading: isLoadingAuth, error: errorAuth }, doFetchAuth] = useFetch(urlAuth);
+    const [{ response: responseMe, isLoading: isLoadingMe, error: errorMe }, doFetchMe] = useFetch(urlMe);
+
     const [currentUserState,dispatch]=useContext(CurrentUserContext)
-const [,setToken]=useLocalStorage('tokenJWS')
+const [token,setToken]=useLocalStorage('tokenJWS')
     // const [login, setLogin]=useState(null)
     // const [email, setEmail]=useState(null)
     // const [password, setPassword]=useState(null)
@@ -78,37 +81,25 @@ if(loginRegistration==='log'){
     if(errorAuth){
         messageError=  errorMassageLogAuth(errorAuth.data.error.message)
     }
-// useEffect(()=>{
-//     if(!errorReg && !errorAuth) return
-//     messageError=errorMassageLogAuth(errorReg)
-// },[errorReg,errorAuth,messageError])
+
 
 useEffect(()=>{
     if(!responseAuth) return
+    doFetchMe({},responseAuth.jwt   )  
+    
     setToken(responseAuth.jwt)
+    
+},[responseAuth])
+useEffect(()=>{
+    if(!responseMe) return
     setIsSuccessfullSubmit(true)
     dispatch({
         type: 'SET_AUTHORIZED',
-        payload: responseAuth.user
+        payload: responseMe
     })
-},[responseAuth])
-// if(currentUserState.currentUser.hasOwnProperty('id')){
-//     setIsSuccessfullSubmit(true)
-// }
-console.log('response', responseReg)
-console.log('errorReg', errorReg)
-console.log('errorAuth', errorAuth)
-    // useEffect(() => {
-    //     console.log('response', responseReg)
-    // }, [responseReg])
-    // if (errorReg) {
-    //     console.log(errorReg.response)
-    // }
-    // if (responseReg) {
-    //     console.log(responseReg)
-    // }
-    // console.log('response', responseReg)
-    // console.log('error', errorReg)
+},[responseMe,dispatch,responseAuth])
+console.log(responseMe)
+console.log(token)
     console.log(messageError)
 useEffect(()=>{
     if(!isSuccessfullSubmit) return
@@ -141,7 +132,7 @@ useEffect(()=>{
                         <input type="text" className="form__input" placeholder="Введіть логін"
                             ref={loginRef}
                             disabled={isLoadingReg}
-                            minlength="5"
+                            minLength="5"
                             required
                         />
                         {(errorReg||errorAuth)&&messageError&&
@@ -169,7 +160,7 @@ useEffect(()=>{
                             placeholder="Введіть пароль"
                             ref={passwordRef}
                             disabled={isLoadingReg}
-                            minlength="6"
+                            minLength="6"
                             required
                         />
                         {(errorReg||errorAuth)&&messageError&&

@@ -11,19 +11,34 @@ const  useFetch =  (url) =>{
     const [response, setResponse] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [manuallyToken, setManuallyToken] = useState({})
     const [option, setOption] = useState({})
     const[tokenJWS]=useLocalStorage('tokenJWS');    
-    const  doFetch = useCallback((option = {}) => {
+    const  doFetch = useCallback((option = {},haveToken=true) => {
         setOption(option);
+        setManuallyToken(haveToken)
         setIsLoading(true);
     },[])
     useEffect(() => {
+        let token;
+        if(typeof manuallyToken==='boolean'){
+             token=tokenJWS?`Bearer ${tokenJWS}`:'';
+
+        }
+        else{
+            token=`Bearer ${manuallyToken}`
+        }
+        // console.log(token)
+        
         const requestOptions ={
             ...option,
             ...{
+                // headers:{
+                //     authorization:tokenJWS?`Bearer ${tokenJWS}`:''
+                // }
                 headers:{
-                    authorization:tokenJWS?`Bearer ${tokenJWS}`:''
-                }
+                        authorization:token
+                    }
             }
         }
         if (!isLoading) return
@@ -41,7 +56,7 @@ const  useFetch =  (url) =>{
             setIsLoading(false);
             setError(error.response)
         })
-    },[isLoading,option,url])
+    },[isLoading,option,url,manuallyToken,tokenJWS])
 
     return [{response, isLoading, error}, doFetch]
 }

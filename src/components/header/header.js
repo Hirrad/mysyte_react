@@ -44,7 +44,7 @@ useEffect(() => {
     })
 
 },[errorQuotes,dispatch])
-console.log('Header')
+// console.log('Header')
 useEffect(() => {
 if(quotesRandom===0) return
 doFetchQuote()

@@ -11,7 +11,9 @@ import {
     FaMountain,
     FaCheck,
     FaPersonThroughWindow,
-    FaGear
+    FaGear,
+    FaTrashCan,
+    FaPencil
 } from "./font-awesome";
 
 export {
@@ -27,5 +29,7 @@ export {
     FaMountain,
     FaCheck,
     FaPersonThroughWindow,
-    FaGear
+    FaGear,
+    FaTrashCan,
+    FaPencil
 }

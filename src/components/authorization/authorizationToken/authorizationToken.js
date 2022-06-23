@@ -10,7 +10,7 @@ const AuthorizationToken = ({children}) => {
     const [, dispatch] = useContext(CurrentUserContext)
     const [{response}, doFetch] = useFetch(`/users/me`);
     const [token] = useLocalStorage('tokenJWS')
-    console.log('auth',token)
+    // console.log('auth',token)
     useEffect(() => {
         if (!token) {
             setCurrentUserState(state => ({

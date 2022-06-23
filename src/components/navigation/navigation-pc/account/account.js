@@ -13,12 +13,12 @@ const Account = ({ username, setCloseOpenBurger }) => {
     const [out, setOut]=useState(false)
     const [currentUser,dispatch]=useContext(CurrentUserContext);
     // console.log(token)
-    console.log(currentUser)
-    console.log('out',out)
+    // console.log(currentUser)
+    // console.log('out',out)
     const logOut=(e)=>{
         // setToken('')
         // e.preventDefault();
-        console.log('out')
+        // console.log('out')
         // localStorage.setItem('tokenJWS','')
         setToken('')
                 dispatch({type:'SET_UNAUTHORIZED'})

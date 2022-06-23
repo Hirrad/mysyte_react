@@ -18,7 +18,7 @@ const NavigationPc = ({ db }) => {
         // e.stopPropagation(e);
         setCloseOpenBurger(closeBurger => !closeBurger)
         // setModalDropList(closeModal=>!closeModal)
-        console.log(e.target)
+        // console.log(e.target)
     }
     //     const [mobile, setMobile]=useState(document.documentElement.clientWidth)
 
@@ -40,7 +40,7 @@ const NavigationPc = ({ db }) => {
 
     // },[mobile])
 
-    console.log(currentUserState)
+    // console.log(currentUserState)
     const home = db.data.find((data) => {
         return data.attributes.home === true
     });
@@ -99,7 +99,7 @@ const NavigationPc = ({ db }) => {
 
                 {!currentUserState.isLoggedIn && <li className="nav-account"
                     onClick={(e) => pushingBurger(e)}>
-                    <Link to='/'
+                    <Link to='#'
                         onClick={() => setlRegistration(true)}>
                         <FaUserCircle />
                         <span>Account</span>

@@ -4,7 +4,7 @@ export default class FreedomstoreService {
     dataCorrection=(item, db)=> {
         if (!db.data) return
  // console.log(db.data.attributes.images.data[0].attributes.formats.medium)
-console.log(db)
+// console.log(db)
         switch (item) {
             case 'gallery_small':
                 return {

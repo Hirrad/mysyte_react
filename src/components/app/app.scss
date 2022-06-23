@@ -40,6 +40,11 @@ body {
   flex-direction: column;
   justify-items: center;
   justify-content: space-between;
+  // overflow:visible;
+
+  img{
+    max-width: 100%;
+  }
   // align-items:;
 }
 ._hidden{

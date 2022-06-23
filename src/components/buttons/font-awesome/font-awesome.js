@@ -48,6 +48,12 @@ const FaPersonThroughWindow =()=>{
 const FaGear =()=>{
     return  <FontAwesomeIcon icon="fa-solid fa-gear" />
 }
+const FaTrashCan =()=>{
+    return  <FontAwesomeIcon icon="fa-solid fa-trash-can" />
+}
+const FaPencil =()=>{
+    return  <FontAwesomeIcon icon="fa-solid fa-pencil" />
+}
 
 export {
     FaFacebook,
@@ -62,5 +68,7 @@ export {
     FaMountain,
     FaCheck,
     FaPersonThroughWindow,
-    FaGear
+    FaGear,
+    FaTrashCan,
+    FaPencil
 }
