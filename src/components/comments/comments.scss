@@ -11,13 +11,21 @@
 
         
     }
-    
+    .edited{
+        font-size: .6rem;
+        color: $dangerColor;
+        
+    }
     &__text{
         padding: 10px;
         min-height: 100px;
         background-color: $firstColor;
         border-radius: 10px;
         color: $fourthColor;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        overflow: hidden;
 
     }
     &__button{
@@ -44,9 +52,10 @@
         height: 36px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         // justify-content: center;
         align-content: center;
-        margin-top: 10px;
+        margin: 10px 0px;
 
         &__data{
            
@@ -54,18 +63,15 @@
         }
         &__wrapper{
             display: flex;
+            align-items: center;
             max-width: 100%;
         }
-        &__avatar, avatar{
-            img{
-                vertical-align: middle;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-            }
-        }
+        // &__avatar,
         &__name{
             margin: 0px 5px 0px 5px;
+            display: flex;
+  align-items: center
+            
         }
         .action-buttons{
             display: flex;
@@ -84,13 +90,27 @@
         }
         &__send-button{
             cursor: pointer;
+            display: flex;
+            align-items: center;
             &:hover{
 color: $firstColor;
             }
             &--ml{
                 margin-left: 10px;
             }
+            &--grey{
+                color: $greyColor;
+            }
+           
         }
+        &__spinner{
+            svg{
+                height: 20px;
+                width: 30px;
+            }
+            
+        }
+        
     }
 
     textarea{
@@ -109,4 +129,16 @@ color: $firstColor;
     &:hover{
         color: $firstColor;
                     }
+}
+.avatar{
+    width: 36px;
+    height: 36px;
+    margin-right: 5px;
+    img,svg{
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+border-radius: 50%;
+    }
+    
 }

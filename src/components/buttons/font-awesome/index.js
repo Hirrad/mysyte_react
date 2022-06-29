@@ -13,7 +13,8 @@ import {
     FaPersonThroughWindow,
     FaGear,
     FaTrashCan,
-    FaPencil
+    FaPencil,
+    FaCircleUser
 } from "./font-awesome";
 
 export {
@@ -31,5 +32,6 @@ export {
     FaPersonThroughWindow,
     FaGear,
     FaTrashCan,
-    FaPencil
+    FaPencil,
+    FaCircleUser
 }

@@ -1,7 +1,7 @@
 import {scroller}  from "react-scroll";
 
-const scroll =()=>{
-return scroller.scrollTo('container',{
+const scroll =(container='container')=>{
+return scroller.scrollTo(container,{
     spy:true,
 smooth:true,
 offset:0,

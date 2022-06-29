@@ -93,7 +93,7 @@ useEffect(()=>{
 useEffect(()=>{
     if(!responseMe) return
     setIsSuccessfullSubmit(true)
-    dispatch({
+dispatch({
         type: 'SET_AUTHORIZED',
         payload: responseMe
     })

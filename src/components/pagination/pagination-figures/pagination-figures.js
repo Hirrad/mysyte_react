@@ -12,7 +12,8 @@ const PaginationFigures = ({ totalCount,
     separator='...',
     startEndButton = false,
     nextForward = false,
-    showingWhenPagesOne=false}) => {
+    showingWhenPagesOne=false,
+scrollToBlock='container'}) => {
     const endCount = Math.ceil(totalCount / limit)
 
     const currentArrayPages = (currentPage = 1, endCount) => {
@@ -49,13 +50,13 @@ const PaginationFigures = ({ totalCount,
             {startEndButton &&
                 <li className={"pagination-figures-item" + (currentPage === 1 ? ' disabled' : '')}>
                     <Link className="pagination-figures-link" to={''}
-                        onClick={() => {flipping(1); scroll()}}
+                        onClick={() => {flipping(1); scroll(scrollToBlock)}}
                     >Початок</Link>
                 </li>}
             {nextForward && <li className={"pagination-figures-item " + (currentPage === 1 ? ' disabled' : '')}>
                 <Link className="pagination-figures-link " to={''}
 
-                    onClick={() => {flipping(currentPage - 1);scroll()}}
+                    onClick={() => {flipping(currentPage - 1);scroll(scrollToBlock)}}
                 >
                     Попередній
                 </Link>
@@ -65,7 +66,7 @@ const PaginationFigures = ({ totalCount,
                     <li className={"pagination-figures-item "}>
                         <Link className="pagination-figures-link " to={''}
 
-                            onClick={() => {flipping(1);scroll()}}
+                            onClick={() => {flipping(1);scroll(scrollToBlock)}}
                         >
                             1
                         </Link>
@@ -73,7 +74,7 @@ const PaginationFigures = ({ totalCount,
                     <li className={"pagination-figures-item"}>
                         <Link className="pagination-figures-link " to={''}
 
-                            onClick={() => {flipping(currentPage - maxInPage-1);scroll()}}
+                            onClick={() => {flipping(currentPage - maxInPage-1);scroll(scrollToBlock)}}
                         >
                             {separator}
                         </Link>
@@ -83,7 +84,7 @@ const PaginationFigures = ({ totalCount,
                 <li className='pagination-figures-item' key={body}>
                     <Link to={''}
                         className={'pagination-figures-link ' + (body === currentPage ? ' actived' : '')}
-                        onClick={(e) => {flipping(body); scroll()}}
+                        onClick={(e) => {flipping(body); scroll(scrollToBlock)}}
                     >
                         {body}
                     </Link>
@@ -95,7 +96,7 @@ const PaginationFigures = ({ totalCount,
                     <li className={"pagination-figures-item"}>
                         <Link className="pagination-figures-link " to={''}
 
-                            onClick={() => {flipping(currentPage + maxInPage/2);scroll()}}
+                            onClick={() => {flipping(currentPage + maxInPage/2);scroll(scrollToBlock)}}
                         >
                             {separator}
                         </Link>
@@ -103,7 +104,7 @@ const PaginationFigures = ({ totalCount,
                     <li className={"pagination-figures-item "}>
                         <Link className="pagination-figures-link " to={''}
 
-                            onClick={() => {flipping(endCount);scroll()}}
+                            onClick={() => {flipping(endCount);scroll(scrollToBlock)}}
                         >
                             {endCount}
                         </Link>
@@ -112,12 +113,12 @@ const PaginationFigures = ({ totalCount,
             {nextForward &&
                 <li className={"pagination-figures-item" + (currentPage === endCount ? ' disabled' : '')}>
                     <Link className="pagination-figures-link" to={''}
-                        onClick={() => {flipping(currentPage + 1);scroll()}}
+                        onClick={() => {flipping(currentPage + 1);scroll(scrollToBlock)}}
                     >Наступний</Link>
                 </li>}
             {startEndButton && <li className={"pagination-figures-item" + (currentPage === endCount ? ' disabled' : '')}>
                 <Link className="pagination-figures-link" to={''}
-                    onClick={() => {flipping(endCount);scroll()}}
+                    onClick={() => {flipping(endCount);scroll(scrollToBlock)}}
                 >Кінець</Link>
             </li>}
 

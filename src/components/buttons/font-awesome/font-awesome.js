@@ -51,8 +51,12 @@ const FaGear =()=>{
 const FaTrashCan =()=>{
     return  <FontAwesomeIcon icon="fa-solid fa-trash-can" />
 }
+
 const FaPencil =()=>{
     return  <FontAwesomeIcon icon="fa-solid fa-pencil" />
+}
+const FaCircleUser =()=>{
+    return  <FontAwesomeIcon icon="fa-solid fa-circle-user" />
 }
 
 export {
@@ -70,5 +74,6 @@ export {
     FaPersonThroughWindow,
     FaGear,
     FaTrashCan,
-    FaPencil
+    FaPencil,
+    FaCircleUser
 }
