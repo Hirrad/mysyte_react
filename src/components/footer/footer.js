@@ -1,6 +1,7 @@
 import React from "react";
 import "./footer.scss"
 import {Link} from "react-router-dom";
+import { FaFacebook, FaInstagram, FaTelegram} from "../buttons/font-awesome";
 
 const Footer =()=>{
     const year = new Date();
@@ -14,16 +15,20 @@ const Footer =()=>{
 
             <div className="copy">Copyright {year.getFullYear()} Terms & Privacy</div>
         </div>
-        {/* <div className="footer_more">
+        <div className="footer_more">
             <ul>
-                <li><Link to="page.html">More on The Blog</Link></li>
-                <li><Link to="page.html">About MNTN</Link></li>
-                <li><Link to="page.html">Contributors & Writers</Link></li>
-                <li><Link to="page.html">Write For Us</Link></li>
-                <li><Link to="page.html">Contact Us</Link></li>
-                <li><Link to="page.html">Privacy Policy</Link></li>
+                <li>Контакти</li>
+                <span className='d-flex'><li>
+                <a href="https://www.facebook.com/HiradCold"  target="_blank" rel="noopener noreferrer">
+
+                <FaFacebook/>
+                </a></li>
+                {/* <li><Link to="page.html"><FaInstagram/></Link></li>
+                <li><Link to="page.html"><FaTelegram/></Link></li> */}
+                </span> 
+                
             </ul>
-        </div> */}
+        </div>
     </div>
 }
 export default Footer;

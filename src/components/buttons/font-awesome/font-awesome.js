@@ -1,7 +1,7 @@
 import React from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import {faFacebook, faInstagram,faFontAwesome } from "@fortawesome/free-brands-svg-icons";
+import {faFacebook, faInstagram,faFontAwesome,faTelegram } from "@fortawesome/free-brands-svg-icons";
 import {faLongArrowAltDown,
      faLongArrowAltRight,
       faUserCircle,       
@@ -58,7 +58,9 @@ const FaPencil =()=>{
 const FaCircleUser =()=>{
     return  <FontAwesomeIcon icon="fa-solid fa-circle-user" />
 }
-
+const FaTelegram =()=>{
+   return  <FontAwesomeIcon icon={faTelegram} className='colorIcon'/>
+}
 export {
     FaFacebook,
     FaInstagram,
@@ -75,5 +77,6 @@ export {
     FaGear,
     FaTrashCan,
     FaPencil,
-    FaCircleUser
+    FaCircleUser,
+    FaTelegram
 }

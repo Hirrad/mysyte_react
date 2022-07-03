@@ -14,7 +14,8 @@ import {
     FaGear,
     FaTrashCan,
     FaPencil,
-    FaCircleUser
+    FaCircleUser,
+    FaTelegram
 } from "./font-awesome";
 
 export {
@@ -33,5 +34,6 @@ export {
     FaGear,
     FaTrashCan,
     FaPencil,
-    FaCircleUser
+    FaCircleUser,
+    FaTelegram
 }

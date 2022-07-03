@@ -26,6 +26,7 @@ const AuthorizationToken = ({children}) => {
         //     ...state,
         //     isLoading: true
         // }))
+        console.log('1')
         dispatch({type:'LOADING'})
         
     }, [token, doFetch, setCurrentUserState,dispatch])

@@ -47,10 +47,10 @@ const switchCommit = (name, id) => {
             break;
         case 'travel':
             namePathname = {
-                urlPost: false,
-                urlGet: false,
-                urlUpdate: false,
-                urlDelete: false
+                urlPost: `/on-a-hikes/1/comments`,
+                urlGet: `/comment-on-a-hikes?filters[on_a_hike][id]=${id}`,
+                urlUpdate: `/comment-on-a-hikes/`,
+                urlDelete: `/comment-on-a-hikes/`
             };
             break;
         default:

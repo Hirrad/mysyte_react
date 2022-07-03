@@ -73,6 +73,11 @@ export default class FreedomstoreService {
 
         }
     }
+    optionsSRLWrapper={
+        caption:{
+            showCaption: false
+        }
+    }
 }
 // `${this.__dbUrlI+'/uploads/medium_'+body.attributes.hash+body.attributes.ext}`
 // const free =new FreedomstoreService();

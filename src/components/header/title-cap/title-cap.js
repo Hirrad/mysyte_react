@@ -12,10 +12,10 @@ const TitleCap=()=>{
                                      smooth={true}
                                      offset={0}
                                      duration={500}>
-        <div className="header_footer"><span className="scroll-down">scroll down </span>
+        <div className="header_footer"><span className="scroll-down">Спуститись вниз</span>
 
 
-            <FaLongArrowAltDown/>
+            <FaLongArrowAltDown />
         </div>
     </Link>
 }
